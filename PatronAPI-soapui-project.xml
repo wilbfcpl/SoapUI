@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="26273003-0985-4294-a75c-765a5b1cbd77" activeEnvironment="Default" name="CarlXPatronAPI" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b3eceddc-f22f-4949-ae7b-71a3921d55a4" wsaVersion="NONE" name="CarlXAPISoap11" type="wsdl" bindingName="{http://tlcdelivers.com/cx/schemas/patronAPI}CarlXAPISoap11" soapVersion="1_1" anonymous="optional" definition="http://fcplapp.fcpl.org:8081/CarlXAPI/PatronAPI.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://fcplapp.fcpl.org:8081/CarlXAPI/PatronAPI.wsdl"><con:part><con:url>http://fcplapp.fcpl.org:8081/CarlXAPI/PatronAPI.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:sch1="http://tlcdelivers.com/cx/schemas/request" xmlns:sch10="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:sch11="http://tlcdelivers.com/cx/schemas/noticehistory" xmlns:sch2="http://tlcdelivers.com/cx/schemas/bst" xmlns:sch3="http://tlcdelivers.com/cx/schemas/language" xmlns:sch4="http://tlcdelivers.com/cx/schemas/search" xmlns:sch5="http://tlcdelivers.com/cx/schemas/patron" xmlns:sch6="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:sch7="http://tlcdelivers.com/cx/schemas/response" xmlns:sch8="http://tlcdelivers.com/cx/schemas/transaction" xmlns:sch9="http://tlcdelivers.com/cx/schemas/phoneType" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tlcdelivers.com/cx/schemas/patronAPI">
+<con:soapui-project id="0193798c-5879-4326-9134-24771da3c852" activeEnvironment="Default" name="PatronAPI" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="06ee1194-081a-451b-8f2a-5f568313bba1" wsaVersion="NONE" name="CarlXAPISoap11" type="wsdl" bindingName="{http://tlcdelivers.com/cx/schemas/patronAPI}CarlXAPISoap11" soapVersion="1_1" anonymous="optional" definition="http://fcplapp.fcpl.org:8081/CarlXAPI/PatronAPI.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://fcplapp.fcpl.org:8081/CarlXAPI/PatronAPI.wsdl"><con:part><con:url>http://fcplapp.fcpl.org:8081/CarlXAPI/PatronAPI.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:sch1="http://tlcdelivers.com/cx/schemas/request" xmlns:sch10="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:sch11="http://tlcdelivers.com/cx/schemas/noticehistory" xmlns:sch2="http://tlcdelivers.com/cx/schemas/bst" xmlns:sch3="http://tlcdelivers.com/cx/schemas/language" xmlns:sch4="http://tlcdelivers.com/cx/schemas/search" xmlns:sch5="http://tlcdelivers.com/cx/schemas/patron" xmlns:sch6="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:sch7="http://tlcdelivers.com/cx/schemas/response" xmlns:sch8="http://tlcdelivers.com/cx/schemas/transaction" xmlns:sch9="http://tlcdelivers.com/cx/schemas/phoneType" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tlcdelivers.com/cx/schemas/patronAPI">
   <wsdl:types>
     <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:extensionBindingPrefixes="annox" jaxb:version="2.1" targetNamespace="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:annox="http://annox.dev.java.net" xmlns:bst="http://tlcdelivers.com/cx/schemas/bst" xmlns:language="http://tlcdelivers.com/cx/schemas/language" xmlns:noticeHistory="http://tlcdelivers.com/cx/schemas/noticehistory" xmlns:patron="http://tlcdelivers.com/cx/schemas/patron" xmlns:patronAPI="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:phoneType="http://tlcdelivers.com/cx/schemas/phoneType" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:response="http://tlcdelivers.com/cx/schemas/response" xmlns:search="http://tlcdelivers.com/cx/schemas/search" xmlns:transaction="http://tlcdelivers.com/cx/schemas/transaction" xmlns:udfPatronRecord="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:webcoh="http://annox.dev.java.net/com.webcohesion.enunciate.metadata">
       <xs:import namespace="http://tlcdelivers.com/cx/schemas/bst"/>
@@ -1817,6 +1817,7 @@
           <xs:element minOccurs="0" name="PublicationYear" type="xs:string"/>
           <xs:element minOccurs="0" name="QueuePosition" type="xs:int"/>
           <xs:element minOccurs="0" name="Title" type="xs:string"/>
+          <xs:element minOccurs="0" name="ItemBranch" type="xs:short"/>
           <xs:element minOccurs="0" name="TransactionBranch" type="xs:short"/>
           <xs:element minOccurs="0" name="TransactionCode" type="xs:string"/>
           <xs:element minOccurs="0" name="TransactionDate" type="xs:dateTime"/>
@@ -2705,7 +2706,7 @@
       <soap:address location="http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://fcplapp.fcpl.org:8080/CarlXAPI/CarlXAPI/</con:endpoint><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint></con:endpoints><con:operation id="ed5ba9d3-4693-4df3-b4ba-3cf9094c53bc" isOneWay="false" action="" name="AddPatronNote" bindingOperationName="AddPatronNote" type="Request-Response" outputName="AddPatronNoteResponse" inputName="AddPatronNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6627b274-6cc3-4f89-807a-f629c38274d5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint></con:endpoints><con:operation id="ec4c6e83-a7c1-487c-8027-13fc362d83f2" isOneWay="false" action="" name="AddPatronNote" bindingOperationName="AddPatronNote" type="Request-Response" outputName="AddPatronNoteResponse" inputName="AddPatronNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a5f64193-a064-421b-b4a5-34dba0162f07" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:AddPatronNoteRequest>\r
@@ -2737,7 +2738,7 @@
          </pat:Modifiers>\r
       </pat:AddPatronNoteRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/AddPatronNoteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8727d41f-de51-4721-ab35-3492b970e2a0" isOneWay="false" action="" name="CreatePatron" bindingOperationName="CreatePatron" type="One-Way" inputName="CreatePatronRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="62c76e7d-24fc-4c22-a570-19cd52fde220" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/AddPatronNoteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e4e0f39f-8b57-4ab1-9b02-de6418c00ded" isOneWay="false" action="" name="CreatePatron" bindingOperationName="CreatePatron" type="One-Way" inputName="CreatePatronRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="18608492-ea9b-4b81-b3a0-745d3c33aa27" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:CreatePatronRequest>\r
@@ -2890,7 +2891,7 @@
          </pat:Modifiers>\r
       </pat:CreatePatronRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/CreatePatronRequest"/></con:call></con:operation><con:operation id="46242b4e-b246-4023-975d-4caae1bb5a77" isOneWay="false" action="" name="CreatePatronUserDefinedFields" bindingOperationName="CreatePatronUserDefinedFields" type="One-Way" inputName="CreatePatronUserDefinedFieldsRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6ec98194-a43e-4b58-aeaa-09a8340b2736" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:udf="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/CreatePatronRequest"/></con:call></con:operation><con:operation id="025deeed-1c17-417b-a78b-07b842f40a96" isOneWay="false" action="" name="CreatePatronUserDefinedFields" bindingOperationName="CreatePatronUserDefinedFields" type="One-Way" inputName="CreatePatronUserDefinedFieldsRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d0969277-9c38-4fc3-9559-2147679fd892" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:udf="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:CreatePatronUserDefinedFieldsRequest>\r
@@ -2925,7 +2926,7 @@
          </pat:Modifiers>\r
       </pat:CreatePatronUserDefinedFieldsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/CreatePatronUserDefinedFieldsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b3df52bf-51d6-447c-bd83-87dfd15829f3" isOneWay="false" action="" name="DeletePatron" bindingOperationName="DeletePatron" type="One-Way" inputName="DeletePatronRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="293121fb-73ef-4d72-8ad2-aa2b08e03f77" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/CreatePatronUserDefinedFieldsRequest"/></con:call></con:operation><con:operation id="480e18dc-b558-47ed-9a80-0251dd21207f" isOneWay="false" action="" name="DeletePatron" bindingOperationName="DeletePatron" type="One-Way" inputName="DeletePatronRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="46b234c1-e844-41dc-a7cf-9551a9da9c45" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:DeletePatronRequest>\r
@@ -2952,7 +2953,7 @@
          </pat:Modifiers>\r
       </pat:DeletePatronRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/DeletePatronRequest"/></con:call></con:operation><con:operation id="faefe689-d3b1-4e30-a204-5f90f0858254" isOneWay="false" action="" name="DeletePatronNote" bindingOperationName="DeletePatronNote" type="Request-Response" outputName="DeletePatronNoteResponse" inputName="DeletePatronNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="49e4294a-27d3-4581-85df-9a002929121f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/DeletePatronRequest"/></con:call></con:operation><con:operation id="2e671868-7572-430d-80a6-26920b6ef5fe" isOneWay="false" action="" name="DeletePatronNote" bindingOperationName="DeletePatronNote" type="Request-Response" outputName="DeletePatronNoteResponse" inputName="DeletePatronNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f6f37378-a44a-4dd0-a566-544667a120c9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:DeletePatronNoteRequest>\r
@@ -2977,7 +2978,7 @@
          </pat:Modifiers>\r
       </pat:DeletePatronNoteRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/DeletePatronNoteRequest"/></con:call></con:operation><con:operation id="825d3c31-cd22-49ff-9bef-c37c9b884d5d" isOneWay="false" action="" name="DeletePatronUserDefinedFields" bindingOperationName="DeletePatronUserDefinedFields" type="Request-Response" outputName="DeletePatronUserDefinedFieldsResponse" inputName="DeletePatronUserDefinedFieldsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2ddc14dc-8d91-4e48-97ad-92547cfe49d4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:udf="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/DeletePatronNoteRequest"/></con:call></con:operation><con:operation id="2920ac4a-6372-4c2c-aa66-29158e0afc9d" isOneWay="false" action="" name="DeletePatronUserDefinedFields" bindingOperationName="DeletePatronUserDefinedFields" type="Request-Response" outputName="DeletePatronUserDefinedFieldsResponse" inputName="DeletePatronUserDefinedFieldsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="39a70c90-192c-4382-9d31-6d85cd73bb76" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:udf="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:DeletePatronUserDefinedFieldsRequest>\r
@@ -3012,7 +3013,7 @@
          </pat:Modifiers>\r
       </pat:DeletePatronUserDefinedFieldsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/DeletePatronUserDefinedFieldsRequest"/></con:call></con:operation><con:operation id="16845b52-1fae-4add-bfbb-a6c5272c5302" isOneWay="false" action="" name="Generic" bindingOperationName="Generic" type="Notification" outputName="GenericResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="79c1988f-67d3-4915-909c-b79aaef1040b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:res="http://tlcdelivers.com/cx/schemas/response">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/DeletePatronUserDefinedFieldsRequest"/></con:call></con:operation><con:operation id="20e9d043-504b-45c9-a681-d5f447c76dc2" isOneWay="false" action="" name="Generic" bindingOperationName="Generic" type="Notification" outputName="GenericResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="3c9918b3-907d-4435-a630-768a92d7cec6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:res="http://tlcdelivers.com/cx/schemas/response">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GenericResponse>\r
@@ -3028,7 +3029,7 @@
          </pat:ResponseStatuses>\r
       </pat:GenericResponse>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e3bef796-7e64-42c5-93e5-e6c74ccf7410" isOneWay="false" action="" name="GetImage" bindingOperationName="GetImage" type="Request-Response" outputName="GetImageResponse" inputName="GetImageRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="44d37eee-3a66-4241-bad2-4b5fd05e7c04" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:call></con:operation><con:operation id="640fb19b-fd34-486c-8ec3-be53131ead9a" isOneWay="false" action="" name="GetImage" bindingOperationName="GetImage" type="Request-Response" outputName="GetImageResponse" inputName="GetImageRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c48cceb2-3d66-4f87-8d40-d35592a0278f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetImageRequest>\r
@@ -3057,7 +3058,7 @@
          </pat:Modifiers>\r
       </pat:GetImageRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetImageRequest"/></con:call></con:operation><con:operation id="c5d2182c-2c8f-40ad-bfb0-f3e690bdc465" isOneWay="false" action="" name="GetLanguageList" bindingOperationName="GetLanguageList" type="Request-Response" outputName="GetLanguageListResponse" inputName="GetLanguageListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="34aeb3ec-44f9-4b8e-bba3-9acb68bf5481" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetImageRequest"/></con:call></con:operation><con:operation id="da3f43cf-c398-498b-aeab-ebe7106ed12d" isOneWay="false" action="" name="GetLanguageList" bindingOperationName="GetLanguageList" type="Request-Response" outputName="GetLanguageListResponse" inputName="GetLanguageListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="24f817a6-933d-4f1b-a078-4e05922f8894" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetLanguageListRequest>\r
@@ -3081,7 +3082,7 @@
          </pat:Modifiers>\r
       </pat:GetLanguageListRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetLanguageListRequest"/></con:call></con:operation><con:operation id="790e206b-8b31-487b-a652-e9a4f963db4a" isOneWay="false" action="" name="GetNextPatronBarcode" bindingOperationName="GetNextPatronBarcode" type="Request-Response" outputName="GetNextPatronBarcodeResponse" inputName="GetNextPatronBarcodeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="534caada-43e7-4603-abc2-0ca0da26f468" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetLanguageListRequest"/></con:call></con:operation><con:operation id="f7463b46-b232-44aa-b6f4-be2fa43c2f88" isOneWay="false" action="" name="GetNextPatronBarcode" bindingOperationName="GetNextPatronBarcode" type="Request-Response" outputName="GetNextPatronBarcodeResponse" inputName="GetNextPatronBarcodeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2b87b7e1-f969-4b2a-a73f-2def6529c8a9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetNextPatronBarcodeRequest>\r
@@ -3107,7 +3108,7 @@
          </pat:Modifiers>\r
       </pat:GetNextPatronBarcodeRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetNextPatronBarcodeRequest"/></con:call></con:operation><con:operation id="ad52ced2-fe50-46e5-9a52-cf1d378966bb" isOneWay="false" action="" name="GetPatronAuthenticationKey" bindingOperationName="GetPatronAuthenticationKey" type="Request-Response" outputName="GetPatronAuthenticationKeyResponse" inputName="GetPatronAuthenticationKeyRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2ad44899-1304-47f9-a704-dea28abebd02" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetNextPatronBarcodeRequest"/></con:call></con:operation><con:operation id="de27e994-e26a-475e-9f38-4580c450302e" isOneWay="false" action="" name="GetPatronAuthenticationKey" bindingOperationName="GetPatronAuthenticationKey" type="Request-Response" outputName="GetPatronAuthenticationKeyResponse" inputName="GetPatronAuthenticationKeyRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3d52568b-c8b2-414f-952c-09592a1ad2ea" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronAuthenticationKeyRequest>\r
@@ -3135,7 +3136,7 @@
          </pat:Modifiers>\r
       </pat:GetPatronAuthenticationKeyRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronAuthenticationKeyRequest"/></con:call></con:operation><con:operation id="34296978-ce13-4a41-92e8-4a0b9dd6c097" isOneWay="false" action="" name="GetPatronChargeHistory" bindingOperationName="GetPatronChargeHistory" type="Request-Response" outputName="GetPatronChargeHistoryResponse" inputName="GetPatronChargeHistoryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="33f6b0dd-f0e0-4647-9d19-84ae89662abd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronAuthenticationKeyRequest"/></con:call></con:operation><con:operation id="33ed7f51-7708-478e-9e01-1fc655f228f9" isOneWay="false" action="" name="GetPatronChargeHistory" bindingOperationName="GetPatronChargeHistory" type="Request-Response" outputName="GetPatronChargeHistoryResponse" inputName="GetPatronChargeHistoryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3d9120e6-d852-4e6f-972f-b9d0f4504d50" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronChargeHistoryRequest>\r
@@ -3164,7 +3165,7 @@
          </pat:Modifiers>\r
       </pat:GetPatronChargeHistoryRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronChargeHistoryRequest"/></con:call></con:operation><con:operation id="8c178ecc-4679-4d09-9c5c-c77d8b15ce23" isOneWay="false" action="" name="GetPatronDefaults" bindingOperationName="GetPatronDefaults" type="Request-Response" outputName="GetPatronDefaultsResponse" inputName="GetPatronDefaultsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2c5220a7-b4ba-4501-9571-370a05cbb345" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronChargeHistoryRequest"/></con:call></con:operation><con:operation id="bc7ad180-a903-4d52-ab07-3b8dad795d49" isOneWay="false" action="" name="GetPatronDefaults" bindingOperationName="GetPatronDefaults" type="Request-Response" outputName="GetPatronDefaultsResponse" inputName="GetPatronDefaultsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="edd499e7-e5e6-4542-acc1-dc4ac8d461fd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronDefaultsRequest>\r
@@ -3189,7 +3190,7 @@
          </pat:Modifiers>\r
       </pat:GetPatronDefaultsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronDefaultsRequest"/></con:call></con:operation><con:operation id="7791501c-3aa3-4bc6-a2d2-586731c35df3" isOneWay="false" action="" name="GetPatronFiscalHistory" bindingOperationName="GetPatronFiscalHistory" type="Request-Response" outputName="GetPatronFiscalHistoryResponse" inputName="GetPatronFiscalHistoryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="548b819a-25e4-4b0b-8180-8c62041cc774" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronDefaultsRequest"/></con:call></con:operation><con:operation id="480508fb-0a79-45fb-bed3-0002eb401c96" isOneWay="false" action="" name="GetPatronFiscalHistory" bindingOperationName="GetPatronFiscalHistory" type="Request-Response" outputName="GetPatronFiscalHistoryResponse" inputName="GetPatronFiscalHistoryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="04551e2a-5857-40aa-8162-68a563054640" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronFiscalHistoryRequest>\r
@@ -3230,13 +3231,13 @@
          </pat:Modifiers>\r
       </pat:GetPatronFiscalHistoryRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronFiscalHistoryRequest"/></con:call></con:operation><con:operation id="1ebbfb54-23a1-48cf-a9dd-9940120ec2c8" isOneWay="false" action="" name="GetPatronInformation" bindingOperationName="GetPatronInformation" type="Request-Response" outputName="GetPatronInformationResponse" inputName="GetPatronInformationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bce6a901-83a3-48ce-9829-61f6d4c428e3" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronFiscalHistoryRequest"/></con:call></con:operation><con:operation id="92b5706a-12f4-4a4c-b3ae-b179c133cdb6" isOneWay="false" action="" name="GetPatronInformation" bindingOperationName="GetPatronInformation" type="Request-Response" outputName="GetPatronInformationResponse" inputName="GetPatronInformationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="98a8186d-55a2-421c-9c71-c0bc4e77da34" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronInformationRequest>\r
          <!--You may enter the following 3 items in any order-->\r
-         <pat:SearchType>Patron ID</pat:SearchType>\r
-         <pat:SearchID>11982021684457</pat:SearchID>\r
+         <pat:SearchType>?</pat:SearchType>\r
+         <pat:SearchID>?</pat:SearchID>\r
          <pat:Modifiers>\r
             <!--Optional:-->\r
             <req:InstitutionCode>?</req:InstitutionCode>\r
@@ -3247,9 +3248,9 @@
             <!--Optional:-->\r
             <req:EnvBranch>?</req:EnvBranch>\r
             <!--Optional:-->\r
-            <req:DebugMode>1</req:DebugMode>\r
+            <req:DebugMode>?</req:DebugMode>\r
             <!--Optional:-->\r
-            <req:ReportMode>0</req:ReportMode>\r
+            <req:ReportMode>?</req:ReportMode>\r
             <!--Optional:-->\r
             <req:Projection>Brief</req:Projection>\r
             <!--Optional:-->\r
@@ -3257,7 +3258,7 @@
          </pat:Modifiers>\r
       </pat:GetPatronInformationRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:username>wil</con:username><con:password>wil</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronInformationRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="05815e2b-141b-43a4-a032-a5b357780d1f" isOneWay="false" action="" name="GetPatronNotes" bindingOperationName="GetPatronNotes" type="Request-Response" outputName="GetPatronNotesResponse" inputName="GetPatronNotesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="093613f2-ef11-4f58-8964-201908a29017" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronInformationRequest"/></con:call></con:operation><con:operation id="92da124c-5529-4ad0-9273-30830471ad5b" isOneWay="false" action="" name="GetPatronNotes" bindingOperationName="GetPatronNotes" type="Request-Response" outputName="GetPatronNotesResponse" inputName="GetPatronNotesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d935bcd0-c70b-41bc-8dfd-247de46552db" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronNotesRequest>\r
@@ -3282,7 +3283,7 @@
          </pat:Modifiers>\r
       </pat:GetPatronNotesRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronNotesRequest"/></con:call></con:operation><con:operation id="743e6ab5-5080-43ad-be63-eb47740418df" isOneWay="false" action="" name="GetPatronStatuses" bindingOperationName="GetPatronStatuses" type="Request-Response" outputName="GetPatronStatusesResponse" inputName="GetPatronStatusesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="02851abb-5447-471f-bc7d-3ebb4c91bfe3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronNotesRequest"/></con:call></con:operation><con:operation id="7cf3d7c2-c518-4e88-8985-dfbf6939cbdc" isOneWay="false" action="" name="GetPatronStatuses" bindingOperationName="GetPatronStatuses" type="Request-Response" outputName="GetPatronStatusesResponse" inputName="GetPatronStatusesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7dceda69-d260-4f21-a24c-074720ccec9e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronStatusesRequest>\r
@@ -3307,13 +3308,13 @@
          </pat:Modifiers>\r
       </pat:GetPatronStatusesRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronStatusesRequest"/></con:call></con:operation><con:operation id="5cb99f7a-f5f6-4e64-9a38-c4bb7b57214b" isOneWay="false" action="" name="GetPatronSummaryOverview" bindingOperationName="GetPatronSummaryOverview" type="Request-Response" outputName="GetPatronSummaryOverviewResponse" inputName="GetPatronSummaryOverviewRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7b7769be-e262-4a97-a227-7f4bd4b33dd1" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronStatusesRequest"/></con:call></con:operation><con:operation id="7dab929c-7790-42ee-8986-9a8ede6ffb07" isOneWay="false" action="" name="GetPatronSummaryOverview" bindingOperationName="GetPatronSummaryOverview" type="Request-Response" outputName="GetPatronSummaryOverviewResponse" inputName="GetPatronSummaryOverviewRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="94cacde7-b38f-4811-9190-fa8431f5d040" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronSummaryOverviewRequest>\r
          <!--You may enter the following 3 items in any order-->\r
-         <pat:SearchType>Patron ID</pat:SearchType>\r
-         <pat:SearchID>11982021684457</pat:SearchID>\r
+         <pat:SearchType>?</pat:SearchType>\r
+         <pat:SearchID>?</pat:SearchID>\r
          <pat:Modifiers>\r
             <!--Optional:-->\r
             <req:InstitutionCode>?</req:InstitutionCode>\r
@@ -3324,9 +3325,9 @@
             <!--Optional:-->\r
             <req:EnvBranch>?</req:EnvBranch>\r
             <!--Optional:-->\r
-            <req:DebugMode>1</req:DebugMode>\r
+            <req:DebugMode>?</req:DebugMode>\r
             <!--Optional:-->\r
-            <req:ReportMode>1</req:ReportMode>\r
+            <req:ReportMode>?</req:ReportMode>\r
             <!--Optional:-->\r
             <req:Projection>Brief</req:Projection>\r
             <!--Optional:-->\r
@@ -3334,15 +3335,15 @@
          </pat:Modifiers>\r
       </pat:GetPatronSummaryOverviewRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronSummaryOverviewRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e0d1efd3-8f2f-4ce3-a876-d41fa4fd7ae5" isOneWay="false" action="" name="GetPatronTransactions" bindingOperationName="GetPatronTransactions" type="Request-Response" outputName="GetPatronTransactionsResponse" inputName="GetPatronTransactionsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1ed7e897-5105-47f7-989c-ed94c04ebad1" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronSummaryOverviewRequest"/></con:call></con:operation><con:operation id="567e638f-77e0-4633-a789-cc4ed0450d4e" isOneWay="false" action="" name="GetPatronTransactions" bindingOperationName="GetPatronTransactions" type="Request-Response" outputName="GetPatronTransactionsResponse" inputName="GetPatronTransactionsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="213797fe-b735-4889-93ba-80cfd718db22" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronTransactionsRequest>\r
          <!--You may enter the following 4 items in any order-->\r
-         <pat:SearchType>Patron ID</pat:SearchType>\r
-         <pat:SearchID>11982021684457</pat:SearchID>\r
+         <pat:SearchType>?</pat:SearchType>\r
+         <pat:SearchID>?</pat:SearchID>\r
          <!--Optional:-->\r
-         <pat:TransactionType></pat:TransactionType>\r
+         <pat:TransactionType>?</pat:TransactionType>\r
          <pat:Modifiers>\r
             <!--Optional:-->\r
             <req:InstitutionCode>?</req:InstitutionCode>\r
@@ -3353,9 +3354,9 @@
             <!--Optional:-->\r
             <req:EnvBranch>?</req:EnvBranch>\r
             <!--Optional:-->\r
-            <req:DebugMode>1</req:DebugMode>\r
+            <req:DebugMode>?</req:DebugMode>\r
             <!--Optional:-->\r
-            <req:ReportMode>0</req:ReportMode>\r
+            <req:ReportMode>?</req:ReportMode>\r
             <!--Optional:-->\r
             <req:Projection>Brief</req:Projection>\r
             <!--Optional:-->\r
@@ -3363,12 +3364,12 @@
          </pat:Modifiers>\r
       </pat:GetPatronTransactionsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronTransactionsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a0c4187c-e3ee-4c57-8673-ec4e321b236c" isOneWay="false" action="" name="GetPatronUserDefinedFields" bindingOperationName="GetPatronUserDefinedFields" type="Request-Response" outputName="GetPatronUserDefinedFieldsResponse" inputName="GetPatronUserDefinedFieldsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="131794e5-bdb5-4e58-86d7-844276a20766" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronTransactionsRequest"/></con:call></con:operation><con:operation id="6cbf4183-6895-4b49-bda4-53884b8fdf6f" isOneWay="false" action="" name="GetPatronUserDefinedFields" bindingOperationName="GetPatronUserDefinedFields" type="Request-Response" outputName="GetPatronUserDefinedFieldsResponse" inputName="GetPatronUserDefinedFieldsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3f3d73c0-b632-4787-a036-9d405c97bac8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPatronUserDefinedFieldsRequest>\r
          <!--You may enter the following 2 items in any order-->\r
-         <pat:Patronid>11982021684457</pat:Patronid>\r
+         <pat:Patronid>?</pat:Patronid>\r
          <!--Optional:-->\r
          <pat:Modifiers>\r
             <!--Optional:-->\r
@@ -3380,9 +3381,9 @@
             <!--Optional:-->\r
             <req:EnvBranch>?</req:EnvBranch>\r
             <!--Optional:-->\r
-            <req:DebugMode>1</req:DebugMode>\r
+            <req:DebugMode>?</req:DebugMode>\r
             <!--Optional:-->\r
-            <req:ReportMode>1</req:ReportMode>\r
+            <req:ReportMode>?</req:ReportMode>\r
             <!--Optional:-->\r
             <req:Projection>Brief</req:Projection>\r
             <!--Optional:-->\r
@@ -3390,7 +3391,7 @@
          </pat:Modifiers>\r
       </pat:GetPatronUserDefinedFieldsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronUserDefinedFieldsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f957f469-da57-4466-8677-9bc58a517a57" isOneWay="false" action="" name="GetPhoneTypeList" bindingOperationName="GetPhoneTypeList" type="Request-Response" outputName="GetPhoneTypeListResponse" inputName="GetPhoneTypeListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a4878e26-b879-4fb5-9347-bccb89ee959c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPatronUserDefinedFieldsRequest"/></con:call></con:operation><con:operation id="f2ac2a57-8494-4b83-9156-6138e4d1a38d" isOneWay="false" action="" name="GetPhoneTypeList" bindingOperationName="GetPhoneTypeList" type="Request-Response" outputName="GetPhoneTypeListResponse" inputName="GetPhoneTypeListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f2a0beed-e692-4c08-91bd-d7f9e31c3ea5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetPhoneTypeListRequest>\r
@@ -3414,12 +3415,12 @@
          </pat:Modifiers>\r
       </pat:GetPhoneTypeListRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPhoneTypeListRequest"/></con:call></con:operation><con:operation id="ab949362-0c09-4116-b32f-b7e8831aa8ad" isOneWay="false" action="" name="GetUserDefinedFieldsConfiguration" bindingOperationName="GetUserDefinedFieldsConfiguration" type="Request-Response" outputName="GetUserDefinedFieldsConfigurationResponse" inputName="GetUserDefinedFieldsConfigurationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="40673603-afd2-44f7-824b-6d8eac0982bd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetPhoneTypeListRequest"/></con:call></con:operation><con:operation id="b0f64251-2a5a-4b90-909c-094db2c1e420" isOneWay="false" action="" name="GetUserDefinedFieldsConfiguration" bindingOperationName="GetUserDefinedFieldsConfiguration" type="Request-Response" outputName="GetUserDefinedFieldsConfigurationResponse" inputName="GetUserDefinedFieldsConfigurationRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a3356f60-4795-4235-81b2-a175ffe52a8d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:GetUserDefinedFieldsConfigurationRequest/>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetUserDefinedFieldsConfigurationRequest"/></con:call></con:operation><con:operation id="de6a4514-dd0f-40bc-9629-0d78937290e7" isOneWay="false" action="" name="MergePatrons" bindingOperationName="MergePatrons" type="One-Way" inputName="MergePatronsRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ecf3cdc1-ee9e-445d-b2fe-b978e16b59fe" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/GetUserDefinedFieldsConfigurationRequest"/></con:call></con:operation><con:operation id="bed2288a-cde2-476f-948a-95617bdcf74c" isOneWay="false" action="" name="MergePatrons" bindingOperationName="MergePatrons" type="One-Way" inputName="MergePatronsRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="98f8b5fb-41cc-49bc-b730-516544121b33" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:MergePatronsRequest>\r
@@ -3446,7 +3447,7 @@
          </pat:Modifiers>\r
       </pat:MergePatronsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/MergePatronsRequest"/></con:call></con:operation><con:operation id="ff4aae37-8456-45ba-b49e-b99c8390f4b6" isOneWay="false" action="" name="RefreshServerFlags" bindingOperationName="RefreshServerFlags" type="One-Way" inputName="RefreshServerFlagsRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b180a37e-07c7-453b-8722-e35830d05816" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/MergePatronsRequest"/></con:call></con:operation><con:operation id="c97cb17d-0d9a-45bb-80ad-046d56122c48" isOneWay="false" action="" name="RefreshServerFlags" bindingOperationName="RefreshServerFlags" type="One-Way" inputName="RefreshServerFlagsRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c117974a-d06a-43f1-bd8e-6c367dee5549" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:RefreshServerFlagsRequest>\r
@@ -3470,7 +3471,7 @@
          </pat:Modifiers>\r
       </pat:RefreshServerFlagsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/RefreshServerFlagsRequest"/></con:call></con:operation><con:operation id="a608d2ce-1951-4f01-a476-880fd0bdc5bf" isOneWay="false" action="" name="ResetPin" bindingOperationName="ResetPin" type="Request-Response" outputName="ResetPinResponse" inputName="ResetPinRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="08ea478f-3cba-4cc0-ac4d-44dd80e0a272" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/RefreshServerFlagsRequest"/></con:call></con:operation><con:operation id="fa69d4b2-d707-4c68-a5a4-cbb2d7381da7" isOneWay="false" action="" name="ResetPin" bindingOperationName="ResetPin" type="Request-Response" outputName="ResetPinResponse" inputName="ResetPinRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="40dd49bb-bb11-41e3-a33c-34b92ffb9648" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:ResetPinRequest>\r
@@ -3497,7 +3498,7 @@
          </pat:Modifiers>\r
       </pat:ResetPinRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/ResetPinRequest"/></con:call></con:operation><con:operation id="245a948f-7039-4e64-89a3-762dfa2d1b5a" isOneWay="false" action="" name="SearchPatron" bindingOperationName="SearchPatron" type="Request-Response" outputName="SearchPatronResponse" inputName="SearchPatronRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8690d052-777b-4956-ad1b-e3928ce3371a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/ResetPinRequest"/></con:call></con:operation><con:operation id="5510c868-c105-4228-8d30-7f1e2f455331" isOneWay="false" action="" name="SearchPatron" bindingOperationName="SearchPatron" type="Request-Response" outputName="SearchPatronResponse" inputName="SearchPatronRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f9301d53-619d-4b8f-ba8a-ba39a0e12132" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:SearchPatronRequest>\r
@@ -3535,7 +3536,7 @@
          </pat:Modifiers>\r
       </pat:SearchPatronRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/SearchPatronRequest"/></con:call></con:operation><con:operation id="4ab8ea70-4574-4bd5-9dbb-18130bbfc0b7" isOneWay="false" action="" name="SettleFinesAndFees" bindingOperationName="SettleFinesAndFees" type="Request-Response" outputName="SettleFinesAndFeesResponse" inputName="SettleFinesAndFeesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ac89acd3-54a8-4270-9381-b1802dc08fe0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:tran="http://tlcdelivers.com/cx/schemas/transaction" xmlns:res="http://tlcdelivers.com/cx/schemas/response" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/SearchPatronRequest"/></con:call></con:operation><con:operation id="e3b3c784-2fdb-4bec-a33b-e108ed9b4f16" isOneWay="false" action="" name="SettleFinesAndFees" bindingOperationName="SettleFinesAndFees" type="Request-Response" outputName="SettleFinesAndFeesResponse" inputName="SettleFinesAndFeesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fa642d75-e6bc-468d-98c4-33d660c91766" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:tran="http://tlcdelivers.com/cx/schemas/transaction" xmlns:res="http://tlcdelivers.com/cx/schemas/response" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:SettleFinesAndFeesRequest>\r
@@ -3580,7 +3581,7 @@
          </pat:Modifiers>\r
       </pat:SettleFinesAndFeesRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/SettleFinesAndFeesRequest"/></con:call></con:operation><con:operation id="cd336e8b-9f81-4eb3-9523-e3487953e5b1" isOneWay="false" action="" name="UpdateImage" bindingOperationName="UpdateImage" type="One-Way" inputName="UpdateImageRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1902da5a-723a-45b6-a60f-165e958bbcbc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/SettleFinesAndFeesRequest"/></con:call></con:operation><con:operation id="b5dcb7d0-2df5-4347-949e-5b5874a1c44c" isOneWay="false" action="" name="UpdateImage" bindingOperationName="UpdateImage" type="One-Way" inputName="UpdateImageRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a2cc9b00-1bb1-4b8e-a1ec-13ac9a7dc2a1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:UpdateImageRequest>\r
@@ -3588,7 +3589,7 @@
          <pat:SearchType>?</pat:SearchType>\r
          <pat:SearchID>?</pat:SearchID>\r
          <pat:ImageType>?</pat:ImageType>\r
-         <pat:ImageData>cid:1179054803054</pat:ImageData>\r
+         <pat:ImageData>cid:1299512905314</pat:ImageData>\r
          <pat:Modifiers>\r
             <!--Optional:-->\r
             <req:InstitutionCode>?</req:InstitutionCode>\r
@@ -3609,7 +3610,7 @@
          </pat:Modifiers>\r
       </pat:UpdateImageRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdateImageRequest"/></con:call></con:operation><con:operation id="5a35f4cf-5a4a-4940-b339-b02d36c6d5e2" isOneWay="false" action="" name="UpdateNoticeHistory" bindingOperationName="UpdateNoticeHistory" type="Request-Response" outputName="UpdateNoticeHistoryResponse" inputName="UpdateNoticeHistoryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bb6931cc-926c-43e5-a62f-cfc3b3a71b4a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdateImageRequest"/></con:call></con:operation><con:operation id="89381824-3371-4d7c-a9f7-330d88d507ec" isOneWay="false" action="" name="UpdateNoticeHistory" bindingOperationName="UpdateNoticeHistory" type="Request-Response" outputName="UpdateNoticeHistoryResponse" inputName="UpdateNoticeHistoryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a44666c1-f615-4cf7-b6df-01ad6d201420" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:UpdateNoticeHistoryRequest>\r
@@ -3643,40 +3644,40 @@
          </pat:Modifiers>\r
       </pat:UpdateNoticeHistoryRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdateNoticeHistoryRequest"/></con:call></con:operation><con:operation id="14908541-0e55-46d8-8c65-cea6007f9acb" isOneWay="false" action="" name="UpdatePatron" bindingOperationName="UpdatePatron" type="One-Way" inputName="UpdatePatronRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b52ff224-2345-4a22-aa63-0753ccc2f9ae" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdateNoticeHistoryRequest"/></con:call></con:operation><con:operation id="864ce94d-bafe-4eac-9764-46a85b2f2df0" isOneWay="false" action="" name="UpdatePatron" bindingOperationName="UpdatePatron" type="One-Way" inputName="UpdatePatronRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8a5632be-7f7f-4083-bd75-03a224282c84" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:UpdatePatronRequest>\r
          <!--You may enter the following 5 items in any order-->\r
-         <pat:SearchType>Patron ID</pat:SearchType>\r
-         <pat:SearchID>11982920047970</pat:SearchID>\r
+         <pat:SearchType>?</pat:SearchType>\r
+         <pat:SearchID>?</pat:SearchID>\r
          <pat:Patron>\r
             <!--Optional:-->\r
-            <pat1:PatronID></pat1:PatronID>\r
+            <pat1:PatronID>?</pat1:PatronID>\r
             <!--Optional:-->\r
-            <pat1:AltId></pat1:AltId>\r
+            <pat1:AltId>?</pat1:AltId>\r
             <!--Optional:-->\r
-            <pat1:FirstName></pat1:FirstName>\r
+            <pat1:FirstName>?</pat1:FirstName>\r
             <!--Optional:-->\r
-            <pat1:MiddleName></pat1:MiddleName>\r
+            <pat1:MiddleName>?</pat1:MiddleName>\r
             <!--Optional:-->\r
-            <pat1:LastName></pat1:LastName>\r
+            <pat1:LastName>?</pat1:LastName>\r
             <!--Optional:-->\r
-            <pat1:PatronType></pat1:PatronType>\r
+            <pat1:PatronType>?</pat1:PatronType>\r
             <!--Optional:-->\r
-            <pat1:PatronStatusCode>G</pat1:PatronStatusCode>\r
+            <pat1:PatronStatusCode>?</pat1:PatronStatusCode>\r
             <!--Optional:-->\r
             <pat1:Addresses>\r
                <!--You have a CHOICE of the next 1 items at this level-->\r
                <pat1:Address>\r
                   <!--Optional:-->\r
-                  <pat1:Type></pat1:Type>\r
+                  <pat1:Type>?</pat1:Type>\r
                   <!--Optional:-->\r
-                  <pat1:Street></pat1:Street>\r
+                  <pat1:Street>?</pat1:Street>\r
                   <!--Optional:-->\r
-                  <pat1:City></pat1:City>\r
+                  <pat1:City>?</pat1:City>\r
                   <!--Optional:-->\r
-                  <pat1:State></pat1:State>\r
+                  <pat1:State>?</pat1:State>\r
                   <!--Optional:-->\r
                   <pat1:PostalCode>?</pat1:PostalCode>\r
                </pat1:Address>\r
@@ -3685,117 +3686,117 @@
             <pat1:UserDefinedFields>\r
                <!--You have a CHOICE of the next 1 items at this level-->\r
                <pat1:UserDefinedField>\r
-                  <pat1:Field></pat1:Field>\r
-                  <pat1:Value></pat1:Value>\r
+                  <pat1:Field>?</pat1:Field>\r
+                  <pat1:Value>?</pat1:Value>\r
                </pat1:UserDefinedField>\r
             </pat1:UserDefinedFields>\r
             <!--Optional:-->\r
-            <pat1:LastActionDate></pat1:LastActionDate>\r
+            <pat1:LastActionDate>?</pat1:LastActionDate>\r
             <!--Optional:-->\r
-            <pat1:PreferredAddress></pat1:PreferredAddress>\r
+            <pat1:PreferredAddress>?</pat1:PreferredAddress>\r
             <!--Optional:-->\r
-            <pat1:SuffixName></pat1:SuffixName>\r
+            <pat1:SuffixName>?</pat1:SuffixName>\r
             <!--Optional:-->\r
-            <pat1:BirthDate></pat1:BirthDate>\r
+            <pat1:BirthDate>?</pat1:BirthDate>\r
             <!--Optional:-->\r
-            <pat1:Phone1></pat1:Phone1>\r
+            <pat1:Phone1>?</pat1:Phone1>\r
             <!--Optional:-->\r
-            <pat1:Phone2></pat1:Phone2>\r
+            <pat1:Phone2>?</pat1:Phone2>\r
             <!--Optional:-->\r
-            <pat1:PhoneType></pat1:PhoneType>\r
+            <pat1:PhoneType>?</pat1:PhoneType>\r
             <!--Optional:-->\r
-            <pat1:EmailNotices></pat1:EmailNotices>\r
+            <pat1:EmailNotices>?</pat1:EmailNotices>\r
             <!--Optional:-->\r
-            <pat1:Email></pat1:Email>\r
+            <pat1:Email>?</pat1:Email>\r
             <!--Optional:-->\r
-            <pat1:EmailReceiptFlag></pat1:EmailReceiptFlag>\r
+            <pat1:EmailReceiptFlag>?</pat1:EmailReceiptFlag>\r
             <!--Optional:-->\r
-            <pat1:RegistrationDate></pat1:RegistrationDate>\r
+            <pat1:RegistrationDate>?</pat1:RegistrationDate>\r
             <!--Optional:-->\r
-            <pat1:ExpirationDate></pat1:ExpirationDate>\r
+            <pat1:ExpirationDate>?</pat1:ExpirationDate>\r
             <!--Optional:-->\r
-            <pat1:LastEditDate></pat1:LastEditDate>\r
+            <pat1:LastEditDate>?</pat1:LastEditDate>\r
             <!--Optional:-->\r
-            <pat1:LastEditedBy>API</pat1:LastEditedBy>\r
+            <pat1:LastEditedBy>?</pat1:LastEditedBy>\r
             <!--Optional:-->\r
-            <pat1:Language></pat1:Language>\r
+            <pat1:Language>?</pat1:Language>\r
             <!--Optional:-->\r
-            <pat1:RegBranch></pat1:RegBranch>\r
+            <pat1:RegBranch>?</pat1:RegBranch>\r
             <!--Optional:-->\r
-            <pat1:DefaultBranch></pat1:DefaultBranch>\r
+            <pat1:DefaultBranch>?</pat1:DefaultBranch>\r
             <!--Optional:-->\r
-            <pat1:LastEditBranch></pat1:LastEditBranch>\r
+            <pat1:LastEditBranch>?</pat1:LastEditBranch>\r
             <!--Optional:-->\r
-            <pat1:PreferredBranch></pat1:PreferredBranch>\r
+            <pat1:PreferredBranch>?</pat1:PreferredBranch>\r
             <!--Optional:-->\r
-            <pat1:LastActionBranch></pat1:LastActionBranch>\r
+            <pat1:LastActionBranch>?</pat1:LastActionBranch>\r
             <!--Optional:-->\r
-            <pat1:RegisteredBy></pat1:RegisteredBy>\r
+            <pat1:RegisteredBy>?</pat1:RegisteredBy>\r
             <!--Optional:-->\r
-            <pat1:GeneralUserID></pat1:GeneralUserID>\r
+            <pat1:GeneralUserID>?</pat1:GeneralUserID>\r
             <!--Optional:-->\r
-            <pat1:FullName></pat1:FullName>\r
+            <pat1:FullName>?</pat1:FullName>\r
             <!--Optional:-->\r
-            <pat1:PatronPIN></pat1:PatronPIN>\r
+            <pat1:PatronPIN>?</pat1:PatronPIN>\r
             <!--Optional:-->\r
-            <pat1:PINTimestamp></pat1:PINTimestamp>\r
+            <pat1:PINTimestamp>?</pat1:PINTimestamp>\r
             <!--Optional:-->\r
-            <pat1:SelfServeActivityDate></pat1:SelfServeActivityDate>\r
+            <pat1:SelfServeActivityDate>?</pat1:SelfServeActivityDate>\r
             <!--Optional:-->\r
-            <pat1:SponsorName></pat1:SponsorName>\r
+            <pat1:SponsorName>?</pat1:SponsorName>\r
             <!--Zero or more repetitions:-->\r
             <pat1:Notes>\r
                <!--Optional:-->\r
-               <pat1:PatronID></pat1:PatronID>\r
+               <pat1:PatronID>?</pat1:PatronID>\r
                <!--Optional:-->\r
-               <pat1:NoteType></pat1:NoteType>\r
+               <pat1:NoteType>?</pat1:NoteType>\r
                <!--Optional:-->\r
-               <pat1:NoteText></pat1:NoteText>\r
+               <pat1:NoteText>?</pat1:NoteText>\r
                <!--Optional:-->\r
-               <pat1:StaffID></pat1:StaffID>\r
+               <pat1:StaffID>?</pat1:StaffID>\r
                <!--Optional:-->\r
-               <pat1:NoteTimestamp></pat1:NoteTimestamp>\r
+               <pat1:NoteTimestamp>?</pat1:NoteTimestamp>\r
                <!--Optional:-->\r
-               <pat1:NoteID></pat1:NoteID>\r
+               <pat1:NoteID>?</pat1:NoteID>\r
             </pat1:Notes>\r
             <!--Optional:-->\r
-            <pat1:SendHoldAvailableFlag></pat1:SendHoldAvailableFlag>\r
+            <pat1:SendHoldAvailableFlag>?</pat1:SendHoldAvailableFlag>\r
             <!--Optional:-->\r
-            <pat1:SendComingDueFlag></pat1:SendComingDueFlag>\r
+            <pat1:SendComingDueFlag>?</pat1:SendComingDueFlag>\r
             <!--Optional:-->\r
-            <pat1:CollectionStatus></pat1:CollectionStatus>\r
+            <pat1:CollectionStatus>?</pat1:CollectionStatus>\r
             <!--Optional:-->\r
-            <pat1:LastActionLetterStatus></pat1:LastActionLetterStatus>\r
+            <pat1:LastActionLetterStatus>?</pat1:LastActionLetterStatus>\r
             <!--Optional:-->\r
-            <pat1:LoanHistoryOptInFlag></pat1:LoanHistoryOptInFlag>\r
+            <pat1:LoanHistoryOptInFlag>?</pat1:LoanHistoryOptInFlag>\r
             <!--Optional:-->\r
-            <pat1:LoanHistoryStaffViewOptIn></pat1:LoanHistoryStaffViewOptIn>\r
+            <pat1:LoanHistoryStaffViewOptIn>?</pat1:LoanHistoryStaffViewOptIn>\r
             <!--Optional:-->\r
-            <pat1:LegalName></pat1:LegalName>\r
+            <pat1:LegalName>?</pat1:LegalName>\r
          </pat:Patron>\r
          <!--Optional:-->\r
-         <pat:UnverifiedChange></pat:UnverifiedChange>\r
+         <pat:UnverifiedChange>?</pat:UnverifiedChange>\r
          <pat:Modifiers>\r
             <!--Optional:-->\r
-            <req:InstitutionCode></req:InstitutionCode>\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
             <!--Optional:-->\r
-            <req:StationID></req:StationID>\r
+            <req:StationID>?</req:StationID>\r
             <!--Optional:-->\r
-            <req:StaffID></req:StaffID>\r
+            <req:StaffID>?</req:StaffID>\r
             <!--Optional:-->\r
-            <req:EnvBranch></req:EnvBranch>\r
+            <req:EnvBranch>?</req:EnvBranch>\r
             <!--Optional:-->\r
-            <req:DebugMode>1</req:DebugMode>\r
+            <req:DebugMode>?</req:DebugMode>\r
             <!--Optional:-->\r
-            <req:ReportMode>0</req:ReportMode>\r
+            <req:ReportMode>?</req:ReportMode>\r
             <!--Optional:-->\r
             <req:Projection>Brief</req:Projection>\r
             <!--Optional:-->\r
-            <req:RequestOrigin></req:RequestOrigin>\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
          </pat:Modifiers>\r
       </pat:UpdatePatronRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdatePatronRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6a82612a-473a-427a-b28e-fb58a7c05de4" isOneWay="false" action="" name="UpdatePatronNote" bindingOperationName="UpdatePatronNote" type="Request-Response" outputName="UpdatePatronNoteResponse" inputName="UpdatePatronNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0dc7950f-b857-483a-8131-9a9b05854e70" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdatePatronRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6da0dcca-228a-4e67-94f5-9d52dd02b680" isOneWay="false" action="" name="UpdatePatronNote" bindingOperationName="UpdatePatronNote" type="Request-Response" outputName="UpdatePatronNoteResponse" inputName="UpdatePatronNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="13db0888-e12f-49c2-956c-6bb82d3184d1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:pat1="http://tlcdelivers.com/cx/schemas/patron" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:UpdatePatronNoteRequest>\r
@@ -3828,12 +3829,12 @@
          </pat:Modifiers>\r
       </pat:UpdatePatronNoteRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdatePatronNoteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="24fb98a9-1f38-46c1-ba2c-744b021b9057" isOneWay="false" action="" name="UpdatePatronUserDefinedFields" bindingOperationName="UpdatePatronUserDefinedFields" type="One-Way" inputName="UpdatePatronUserDefinedFieldsRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f1b6869b-0ba6-421e-b256-332b6a94cdeb" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:udf="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdatePatronNoteRequest"/></con:call></con:operation><con:operation id="d63e1c89-60c4-4761-ac32-7600af91b2df" isOneWay="false" action="" name="UpdatePatronUserDefinedFields" bindingOperationName="UpdatePatronUserDefinedFields" type="One-Way" inputName="UpdatePatronUserDefinedFieldsRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dae0c5aa-8dc3-4f60-8bbb-719c47ce72cc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pat="http://tlcdelivers.com/cx/schemas/patronAPI" xmlns:udf="http://tlcdelivers.com/cx/schemas/udfpatronrecord" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <pat:UpdatePatronUserDefinedFieldsRequest>\r
-         <pat:SearchType>Patron ID</pat:SearchType>\r
-         <pat:SearchID>11982021684457</pat:SearchID>\r
+         <pat:SearchType>?</pat:SearchType>\r
+         <pat:SearchID>?</pat:SearchID>\r
          <!--Zero or more repetitions:-->\r
          <pat:UserDefinedValueField>\r
             <udf:FieldID>?</udf:FieldID>\r
@@ -3874,4 +3875,4 @@
          </pat:Modifiers>\r
       </pat:UpdatePatronUserDefinedFieldsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdatePatronUserDefinedFieldsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/patronAPI/CarlXAPI/UpdatePatronUserDefinedFieldsRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

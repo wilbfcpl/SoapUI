@@ -1,0 +1,3139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3e2b7e39-017c-48f8-b96f-272f9b477efe" activeEnvironment="Default" name="ItemAPI" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="2474861a-3b7f-4932-a1c3-0dd9eb409a6e" wsaVersion="NONE" name="CarlXAPISoap11" type="wsdl" bindingName="{http://tlcdelivers.com/cx/schemas/itemAPI}CarlXAPISoap11" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/wblake/Workspace/ItemAPI/ItemAPI.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/wblake/Workspace/ItemAPI/ItemAPI.wsdl"><con:part><con:url>file:/C:/Users/wblake/Workspace/ItemAPI/ItemAPI.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:sch1="http://tlcdelivers.com/cx/schemas/tempitem" xmlns:sch2="http://tlcdelivers.com/cx/schemas/request" xmlns:sch3="http://tlcdelivers.com/cx/schemas/response" xmlns:sch4="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:sch5="http://tlcdelivers.com/cx/schemas/title" xmlns:sch6="http://tlcdelivers.com/cx/schemas/item" xmlns:sch7="http://tlcdelivers.com/cx/schemas/systemitemcodes" xmlns:sch8="http://tlcdelivers.com/cx/schemas/search" xmlns:sch9="http://tlcdelivers.com/cx/schemas/itemsuppression" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tlcdelivers.com/cx/schemas/itemAPI">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:item="http://tlcdelivers.com/cx/schemas/item" xmlns:itemAPI="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:itemstatus="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:itemsuppression="http://tlcdelivers.com/cx/schemas/itemsuppression" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:response="http://tlcdelivers.com/cx/schemas/response" xmlns:search="http://tlcdelivers.com/cx/schemas/search" xmlns:systemitemcodes="http://tlcdelivers.com/cx/schemas/systemitemcodes" xmlns:tempitem="http://tlcdelivers.com/cx/schemas/tempitem">
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/tempitem"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/request"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/response"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/item"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/itemstatus"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/systemitemcodes"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/search"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/itemsuppression"/>
+      <xs:complexType name="GetItemSuppressionRequest">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Items" type="xs:string"/>
+          <xs:element minOccurs="0" name="Bid" type="xs:long"/>
+          <xs:element name="Modifiers" type="request:Modifiers"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetItemSuppressionResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="suppressions" type="itemsuppression:ItemSuppression"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetItemSuppressionRequest" type="itemAPI:GetItemSuppressionRequest"/>
+      <xs:element name="GetItemSuppressionResponse" type="itemAPI:GetItemSuppressionResponse"/>
+      <xs:complexType name="CreateItemRequest">
+        <xs:all>
+          <xs:element name="Item" type="item:Item"/>
+          <xs:element minOccurs="0" name="Modifiers" type="request:Modifiers"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:element name="CreateItemRequest" type="itemAPI:CreateItemRequest"/>
+      <xs:element name="CreateTempItemRequest">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="TempItem" type="tempitem:TempItem"/>
+            <xs:element name="Modifiers" type="request:Modifiers"/>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTempItemResponse">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+            <xs:element minOccurs="0" name="ItemID" type="xs:string"/>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="DeleteItemRequest">
+        <xs:all>
+          <xs:element name="ItemID" type="xs:string"/>
+          <xs:element minOccurs="0" name="Modifiers" type="request:Modifiers"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:element name="DeleteItemRequest" type="itemAPI:DeleteItemRequest"/>
+      <xs:complexType name="GetItemListRequest">
+        <xs:all>
+          <xs:element minOccurs="0" name="Branch" type="xs:string"/>
+          <xs:element minOccurs="0" name="Location" type="xs:string"/>
+          <xs:element minOccurs="0" name="Media" type="xs:string"/>
+          <xs:element minOccurs="0" name="Status" type="xs:string"/>
+          <xs:element name="PagingParameters" type="request:PagingParameters"/>
+          <xs:element name="Modifiers" type="request:Modifiers"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="GetItemListResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+          <xs:element minOccurs="0" name="PagingResult" type="response:PagingResult"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Item" type="item:fullItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetItemListRequest" type="itemAPI:GetItemListRequest"/>
+      <xs:element name="GetItemListResponse" type="itemAPI:GetItemListResponse"/>
+      <xs:complexType name="GetItemNotesRequest">
+        <xs:sequence>
+          <xs:element name="SearchField" type="search:SearchFieldType"/>
+          <xs:element name="SearchFieldValue" type="request:NonEmptyString"/>
+          <xs:element name="Modifiers" type="request:Modifiers"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetItemNotesResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Notes" type="itemstatus:ItemNote"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetItemNotesRequest" type="itemAPI:GetItemNotesRequest"/>
+      <xs:element name="GetItemNotesResponse" type="itemAPI:GetItemNotesResponse"/>
+      <xs:complexType name="CreateItemNoteRequest">
+        <xs:sequence>
+          <xs:element name="Note" type="itemstatus:ItemNote"/>
+          <xs:element name="Modifiers" type="request:Modifiers"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreateItemNoteResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+          <xs:element minOccurs="0" name="Note" type="itemstatus:ItemNote"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CreateItemNoteRequest" type="itemAPI:CreateItemNoteRequest"/>
+      <xs:element name="CreateItemNoteResponse" type="itemAPI:CreateItemNoteResponse"/>
+      <xs:complexType name="DeleteItemNoteRequest">
+        <xs:sequence>
+          <xs:element name="NoteID" type="xs:long"/>
+          <xs:element name="Modifiers" type="request:Modifiers"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeleteItemNoteResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DeleteItemNoteRequest" type="itemAPI:DeleteItemNoteRequest"/>
+      <xs:element name="DeleteItemNoteResponse" type="itemAPI:DeleteItemNoteResponse"/>
+      <xs:complexType name="UpdateItemNoteRequest">
+        <xs:sequence>
+          <xs:element name="Note" type="itemstatus:ItemNote"/>
+          <xs:element name="Modifiers" type="request:Modifiers"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UpdateItemNoteResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+          <xs:element minOccurs="0" name="Note" type="itemstatus:ItemNote"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UpdateItemNoteRequest" type="itemAPI:UpdateItemNoteRequest"/>
+      <xs:element name="UpdateItemNoteResponse" type="itemAPI:UpdateItemNoteResponse"/>
+      <xs:element name="UpdateItemRequest" type="itemAPI:UpdateItemRequest"/>
+      <xs:complexType name="UpdateItemRequest">
+        <xs:all>
+          <xs:element name="ItemID" type="xs:string"/>
+          <xs:element name="Item" type="item:Item"/>
+          <xs:element minOccurs="0" name="Modifiers" type="request:Modifiers"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:element name="UpdateItemResponse" type="itemAPI:UpdateItemResponse"/>
+      <xs:complexType name="UpdateItemResponse">
+        <xs:all>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:element name="CalculateFullCallNumberRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Modifiers" type="request:Modifiers"/>
+            <xs:element name="Item" type="item:Item"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CalculateFullCallNumberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+            <xs:element name="FullCallNumber" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="GetAvailableItemStatusRequest">
+        <xs:all>
+          <xs:element minOccurs="0" name="Modifiers" type="request:Modifiers"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:element name="GetAvailableItemStatusRequest" type="itemAPI:GetAvailableItemStatusRequest"/>
+      <xs:complexType name="GetAvailableItemStatusResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ItemStatusInfo" type="systemitemcodes:SystemItemCodes"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetAvailableItemStatusResponse" type="itemAPI:GetAvailableItemStatusResponse"/>
+      <xs:complexType name="GetFillListRequest">
+        <xs:all>
+          <xs:element name="Branch" type="xs:int"/>
+          <xs:element name="Modifiers" type="request:Modifiers"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="GetFillListResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Item" type="item:FillItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetFillListRequest" type="itemAPI:GetFillListRequest"/>
+      <xs:element name="GetFillListResponse" type="itemAPI:GetFillListResponse"/>
+      <xs:complexType name="GetWHORequest">
+        <xs:all>
+          <xs:element name="ItemID" type="xs:string"/>
+          <xs:element name="Modifiers" type="request:Modifiers"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="GetWHOResponse">
+        <xs:sequence>
+          <xs:element name="ResponseStatuses" type="response:ResponseStatusesType"/>
+          <xs:element minOccurs="0" name="WhoHas" type="item:WhoHas"/>
+          <xs:element minOccurs="0" name="WhoHad" type="item:WhoHad"/>
+          <xs:element minOccurs="0" name="WhoOwes" type="item:WhoOwes"/>
+          <xs:element minOccurs="0" name="WhoWants" type="item:WhoWants"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetWHORequest" type="itemAPI:GetWHORequest"/>
+      <xs:element name="GetWHOResponse" type="itemAPI:GetWHOResponse"/>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/tempitem" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:item="http://tlcdelivers.com/cx/schemas/tempitem">
+      <xs:complexType name="TempItem">
+        <xs:sequence>
+          <xs:element name="ItemID" type="xs:string"/>
+          <xs:element name="BranchCode" type="xs:string"/>
+          <xs:element name="LocationCode" type="xs:string"/>
+          <xs:element name="MediaCode" type="xs:string"/>
+          <xs:element name="BID" type="xs:integer"/>
+          <xs:element name="CallNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/request" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:request="http://tlcdelivers.com/cx/schemas/request">
+      <xs:simpleType name="NonEmptyString">
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PositiveLong">
+        <xs:restriction base="xs:long">
+          <xs:minInclusive value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="FourDigitYear">
+        <xs:restriction base="xs:positiveInteger">
+          <xs:minInclusive value="1000"/>
+          <xs:maxInclusive value="9999"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="Month">
+        <xs:restriction base="xs:positiveInteger">
+          <xs:minInclusive value="1"/>
+          <xs:maxInclusive value="12"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="Day">
+        <xs:restriction base="xs:positiveInteger">
+          <xs:minInclusive value="1"/>
+          <xs:maxInclusive value="31"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DayTimeDuration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="[^YM]*[DT].*"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="Modifiers">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains information about request modifiers<br/><br/>
+			InstitutionCode: 3 or 4 digit code indicating the Institution being used<br/><br/>
+			StationID:  The ID of the terminal/machine being used<br/><br/>
+			StaffID:  The ID of the employee submitting the request. Valid ID required for resetPIN.<br/><br/>
+			EnvBranch: Branch Code indicating the Branch being used; required for CheckInItem, CheckoutItem, and createSuggestion. Can be used optionally with getPatronSummaryOverview to limit counts returned to transactions associated with items held by, or fines and fees written at, the given Branch code. Default behavior, if the EnvBranch is excluded, is to return counts for all transactions.<br/><br/>
+			DebugMode:  Whether or not the request should be submitted in debug mode<br/><br/>
+			ReportMode: Whether or not the request should be submitted in report mode; implemented and required for CheckInItem, CheckOutItem, and updatePatronUserDefinedFields. If True, information about the attempted transaction will be returned, but the transaction will not be completed. If False, the transaction will be completed.<br/><br/>
+			Projection:  The level of detail for each result in the response<br/><br/>
+			RequestOrigin: The feature from which the request was initiated; required for UpdateItem. Limited to 12 characters<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InstitutionCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="StationID" type="xs:string"/>
+          <xs:element minOccurs="0" name="StaffID">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="3"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="EnvBranch" type="xs:string"/>
+          <xs:element minOccurs="0" name="DebugMode" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ReportMode" type="xs:boolean"/>
+          <xs:element default="Brief" minOccurs="0" name="Projection" type="request:Projection"/>
+          <xs:element minOccurs="0" name="RequestOrigin" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="Projection">
+        <xs:annotation>
+          <xs:documentation>This element contains the different levels of detail available for certain results (such as Title or Branch)&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Full">
+            <xs:annotation>
+              <xs:documentation>Retrieve the complete detail for each result in the response</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Brief">
+            <xs:annotation>
+              <xs:documentation>Retrieve a subset of the detail for each result in the response</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Web">
+            <xs:annotation>
+              <xs:documentation>Retrieve a small, optimized subset of details for web performance</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="PagingParameters">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains parameters for determining how results should be returned in the response<br/><br/>
+			StartPos: Beginning location within the result set where records should be returned (ie if the result set contains 50 records, return the records
+			beginning with the 10th record).  Cannot be used in conjunction with FollowOnBrowseToken<br/><br/>
+			FollowOnBrowseToken: When conducting follow-on browses, this token specifies the next block of results to return.
+			Cannot be used in conjunction with StartPos<br/><br/>
+			NoOfRecords: The maximum number of results to return in the response<br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:choice minOccurs="0">
+            <xs:element name="StartPos" type="xs:long"/>
+            <xs:element name="FollowOnBrowseToken" type="xs:string"/>
+          </xs:choice>
+          <xs:element name="NoOfRecords" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/response" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:response="http://tlcdelivers.com/cx/schemas/response">
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/request"/>
+      <xs:complexType name="ResponseStatus">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains information regarding the status of a submitted request<br/><br/>
+			Code:  A numeric code indicating whether a request was successful or not<br/><br/>
+			Severity:  The level of importance of the response status<br/><br/>
+			ShortMessage:  A brief description of the response status<br/><br/>
+			LongMessage:  A more detailed description of the response status (optional)<br/><br/>
+			Resolution:  A message indicating what actions must be taken to fix an invalid/failed request<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Code" type="xs:unsignedLong"/>
+          <xs:element name="Severity" type="xs:string"/>
+          <xs:element name="ShortMessage" type="xs:string"/>
+          <xs:element name="LongMessage" type="xs:string"/>
+          <xs:element name="Resolution" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResponseStatusesType">
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="ResponseStatus" type="response:ResponseStatus"/>
+        </xs:choice>
+      </xs:complexType>
+      <xs:complexType name="PagingResult">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains metadata for the results<br/><br/>
+			StartPos: The start position of the results (if supplied in the request)<br/><br/>
+			FollowOnBrowseToken: The token required to retrieve the next block of results for a follow-on browse<br/><br/>
+			NoOfRecords: The number of results contained in the response<br/><br/>
+			MoreRecords: A boolean indicating if additional results are available<br/><br/>
+			TotalHits: The total number of records returned by a query (the response typically contains a subset of the total number of records found)<br/>
+			EstimatedTotalHits: The estimated total number of records returned by a query<br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:choice minOccurs="0">
+            <xs:element name="StartPos" type="xs:long"/>
+            <xs:element name="FollowOnBrowseToken" type="xs:string"/>
+          </xs:choice>
+          <xs:element name="NoOfRecords" type="xs:long"/>
+          <xs:element name="MoreRecords" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="TotalHits" type="xs:long"/>
+          <xs:element minOccurs="0" name="EstimatedTotalHits" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StandardMessage">
+        <xs:annotation>
+          <xs:documentation>Message: Extra information&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MissingIDsMessage">
+        <xs:annotation>
+          <xs:documentation>MissingIDs: List of Missing IDs&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="response:StandardMessage">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="MissingIDs" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BibInfo">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element is a container for both the bid and a date.<br/><br/>
+				BID: The bid<br/><br/>
+				ModDate: The last modified date of the corresponding bid<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="BID" type="request:PositiveLong"/>
+          <xs:element name="ModDate" type="xs:dateTime"/>
+          <xs:element name="scn" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:itemstatus="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:request="http://tlcdelivers.com/cx/schemas/request">
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/request"/>
+      <xs:complexType name="ItemStatus">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains information about the item status<br/><br/>
+                BranchName: Name of the library branch<br/><br/>
+                BranchNumber: Unique number assigned to the branch<br/><br/>
+                OwningBranchCode: Up to 6-character code assigned to a physical branch of the library that owns the item<br/><br/>
+                OwningBranchName: Name of the library branch that owns the item<br/><br/>
+                OwningBranchNumber: Unique number assigned to the branch that owns the item<br/><br/>
+                Suppress: Is the item suppress or not<br/><br/>
+                Type: Indicates whether an item record originated in Circulation or Acquisitions<br/><br/>
+                ThereAtLeastOneNote: Indicates if there are notes<br/><br/>
+                Notes: Any Notes tied to the item<br/><br/>
+                Status: Current Status of the item<br/><br/>
+                StatusDate: Date the item's status changed<br/><br/>
+                DueDate: Date the item is due or not needed<br/><br/>
+                CreationDate: Date the item record was created (or converted)<br/><br/>
+                EditDate: Date the item was last edited<br/><br/>
+                CallNumberFull: Formatted call number<br/><br/>
+                CNLabels: Labels for the 4 call number buckets<br/><br/>
+                Caption: Four 1-character fields that identify an issue<br/><br/>
+                Number: Third call number bucket<br/><br/>
+                Part: Second call number bucket<br/><br/>
+                Volume: First call number bucket<br/><br/>
+                Suffix: Fourth call number bucket<br/><br/>
+                ISID: Unique issue identification number<br/><br/>
+                Chronology: Date of an issue<br/><br/>
+                Enumeration: Enumerated value broken into four 5-byte fields, identifing an issue<br/><br/>
+                CircHistory: # of times item has been charged/renewed since counter last re-set<br/><br/>
+                CumulativeHistory: Number of times item has been charged/renewed since its creation<br/><br/>
+                HoldsHistory: Number of times item has gone to Hold Shelf status since counter set<br/><br/>
+                InHouseCirc: # of times item has been returned with an on shelf status since counter last re-set<br/><br/>
+                Price: Price of item<br/><br/>
+                ReserveBranchCode: Up to 6-character code assigned to a physical branch of the library that reserve the item<br/><br/>
+                ReserveType: The Reserve Type<br/><br/>
+                ReserveBranchLocation: The reserve branch location<br/><br/>
+                ReserveCallNumber: Item-level call number, variously derived<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="itemstatus:ItemStatusBrief">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Author" type="xs:string"/>
+              <xs:element minOccurs="0" name="BranchName" type="xs:string"/>
+              <xs:element minOccurs="0" name="BranchNumber" type="xs:short"/>
+              <xs:element minOccurs="0" name="OwningBranchCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="OwningBranchName" type="xs:string"/>
+              <xs:element minOccurs="0" name="OwningBranchNumber" type="xs:short"/>
+              <xs:element minOccurs="0" name="Suppress" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="Type" type="xs:string"/>
+              <xs:element minOccurs="0" name="Title" type="xs:string"/>
+              <xs:element minOccurs="0" name="ThereAtLeastOneNote" type="xs:boolean"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="Notes" type="itemstatus:ItemNote"/>
+              <xs:element minOccurs="0" name="Status" type="xs:string"/>
+              <xs:element minOccurs="0" name="StatusDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="DueDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="EditDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="CallNumberFull" type="xs:string"/>
+              <xs:element minOccurs="0" name="CNLabels" type="xs:string"/>
+              <xs:element minOccurs="0" name="Caption" type="xs:string"/>
+              <xs:element minOccurs="0" name="Number" type="xs:string"/>
+              <xs:element minOccurs="0" name="Part" type="xs:string"/>
+              <xs:element minOccurs="0" name="Volume" type="xs:string"/>
+              <xs:element minOccurs="0" name="Suffix" type="xs:string"/>
+              <xs:element minOccurs="0" name="ISID" type="xs:long"/>
+              <xs:element minOccurs="0" name="Chronology" type="xs:string"/>
+              <xs:element minOccurs="0" name="Enumeration" type="xs:string"/>
+              <xs:element minOccurs="0" name="CircHistory" type="xs:int"/>
+              <xs:element minOccurs="0" name="CumulativeHistory" type="xs:int"/>
+              <xs:element minOccurs="0" name="HoldsHistory" type="xs:int"/>
+              <xs:element minOccurs="0" name="InHouseCirc" type="xs:int"/>
+              <xs:element minOccurs="0" name="Price" type="xs:decimal"/>
+              <xs:element minOccurs="0" name="ReserveBranchCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="ReserveType" type="itemstatus:ReserveTypes"/>
+              <xs:element minOccurs="0" name="ReserveBranchLocation" type="xs:string"/>
+              <xs:element minOccurs="0" name="ReserveCallNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="AlternateStatus" type="xs:string"/>
+              <xs:element minOccurs="0" name="CreatedBy" type="xs:string"/>
+              <xs:element minOccurs="0" name="LastUpdatedBy" type="xs:string"/>
+              <xs:element minOccurs="0" name="LocationName" type="xs:string"/>
+              <xs:element minOccurs="0" name="LocationNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="OwningLocationCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="OwningLocationName" type="xs:string"/>
+              <xs:element minOccurs="0" name="OwningLocationNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="MediaNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="StatusCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="NumberCaption" type="xs:string"/>
+              <xs:element minOccurs="0" name="PartCaption" type="xs:string"/>
+              <xs:element minOccurs="0" name="VolumeCaption" type="xs:string"/>
+              <xs:element minOccurs="0" name="SuffixCaption" type="xs:string"/>
+              <xs:element minOccurs="0" name="CopiesOnBid" type="xs:int"/>
+              <xs:element minOccurs="0" name="HoldsOnBid" type="xs:int"/>
+              <xs:element minOccurs="0" name="ItemHoldsOnBid" type="xs:int"/>
+              <xs:element minOccurs="0" name="TitleHoldsOnBid" type="xs:int"/>
+              <xs:element minOccurs="0" name="IssueHoldsOnBid" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ItemStatusBrief">
+        <xs:annotation>
+          <xs:documentation><![CDATA[ItemID: Item number (barcode)<br/><br/>
+                BranchCode: Up to 6-character code assigned to a physical branch of the library<br/><br/>
+                LocationCode: The location<br/><br/>
+                MediaCode: The media type<br/><br/>
+                BID: The ID of the bibliographic record<br/><br/>
+                CallNumber: Item-level call number, variously derived<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ItemID" type="xs:string"/>
+          <xs:element minOccurs="0" name="BranchCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="LocationCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="MediaCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="BID" type="request:PositiveLong"/>
+          <xs:element minOccurs="0" name="CallNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="ItemSearchType">
+        <xs:annotation>
+          <xs:documentation>This element contains the available item search types&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BID"/>
+          <xs:enumeration value="ITEM"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ItemNote">
+        <xs:annotation>
+          <xs:documentation><![CDATA[NoteID: The Note ID<br/><br/>
+                NoteType: The Note Type<br/><br/>
+                NoteText: Text information <br/><br/>
+                NoteDate: Indicates when the note was created or edited<br/><br/>
+                Alias: Alias of the last staff member to create or edit<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NoteID" type="xs:long"/>
+          <xs:element minOccurs="0" name="Item" type="xs:string"/>
+          <xs:element minOccurs="0" name="NoteType" type="itemstatus:ItemNoteTypes"/>
+          <xs:element minOccurs="0" name="NoteText" type="xs:string"/>
+          <xs:element minOccurs="0" name="NoteDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="Alias" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ItemNoteGroup">
+        <xs:sequence>
+          <xs:element name="ItemID" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ItemNote" type="itemstatus:ItemNote"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="ReserveTypes">
+        <xs:annotation>
+          <xs:documentation>This field contains the available ReserveTypes&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Regular"/>
+          <xs:enumeration value="Reserve"/>
+          <xs:enumeration value="Reserve Only"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ItemNoteTypes">
+        <xs:annotation>
+          <xs:documentation>This field contains the available NoteTypes&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Shelf Status Note"/>
+          <xs:enumeration value="Charge/Discharge Note"/>
+          <xs:enumeration value="Call Number Note"/>
+          <xs:enumeration value="Standard Note"/>
+          <xs:enumeration value="Boundwith Title"/>
+          <xs:enumeration value="Holdings Status Note"/>
+          <xs:enumeration value="Damaged Item Note"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/title" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:title="http://tlcdelivers.com/cx/schemas/title">
+      <xs:complexType name="Title">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains all the fields for Title elements<br/>
+			BibID:  The bibliographic record ID of the title<br/>
+			Isbn:  The ISBN of the title<br/>
+			Author:  The author of the title<br/>
+			DisplayTitle:  The actual title of the work<br/>
+			PublicationYear:  The year the title was published<br/>
+			CallNumber:  The call number of the title<br/>
+			NormalizedCallNumber:  The call number of the title with special characters removed<br/>
+			Language:  The language of the title<br/>
+			RecordType:  Bytes 6 and 7 of the bibliographic leader<br/>
+			Format:  The format of the title (book, DVD, etc)<br/>
+			Upc:  The title's Universal Product Code<br/>
+			InstBit:  The title's numeric institution code<br/>
+			Folder:  Number representing a particular collection of records for an institution (0=Live, 2=Work)<br/>
+			HiddenType:  Enumeration indicating whether to display the title<br/>
+			SuppressType:  Enumeration indicating under what conditions to set the HiddenType flag<br/>
+			SuppressDate:  Date through which to suppress the display of the title<br/>
+			PrintAuthor:  The author of the title with special characters removed<br/>
+			PrintTitle:  The title of the work with special characters removed<br/>
+			HoldCount:  The number of item holds for the title<br/>
+			Status:  The status of the title<br/>
+			TitleIndicators:  Indicator field from title tag<br/>
+			BibType:  Flag indicating if the title is full (0) or temporary (1)<br/>
+			ExternalControlNumber:  The title's control number from an outside institution<br/>
+			BibLatestChange:  Date of most recent change to title<br/>
+			ItemsLatestChange:  Date of most recent change to any of title's items<br/>
+			EResource:  Indicator of whether the title is an eResource or not<br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BibID" type="xs:integer"/>
+          <xs:element minOccurs="0" name="Isbn" type="xs:string"/>
+          <xs:element minOccurs="0" name="Author" type="xs:string"/>
+          <xs:element minOccurs="0" name="DisplayTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="PublicationYear" type="xs:string"/>
+          <xs:element minOccurs="0" name="CallNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="NormalizedCallNumber" type="xs:integer"/>
+          <xs:element minOccurs="0" name="Language" type="xs:string"/>
+          <xs:element minOccurs="0" name="RecordType" type="xs:string"/>
+          <xs:element minOccurs="0" name="Format" type="xs:string"/>
+          <xs:element minOccurs="0" name="Upc" type="xs:string"/>
+          <xs:element minOccurs="0" name="InstBit" type="xs:short"/>
+          <xs:element minOccurs="0" name="Folder" type="xs:short"/>
+          <xs:element minOccurs="0" name="HiddenType" type="title:HiddenType"/>
+          <xs:element minOccurs="0" name="SuppressType" type="title:SuppressType"/>
+          <xs:element minOccurs="0" name="SuppressDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="PrintAuthor" type="xs:string"/>
+          <xs:element minOccurs="0" name="PrintTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="HoldCount" type="xs:integer"/>
+          <xs:element minOccurs="0" name="Status" type="xs:string"/>
+          <xs:element minOccurs="0" name="TitleIndicators" type="xs:string"/>
+          <xs:element minOccurs="0" name="BibType" type="xs:int"/>
+          <xs:element minOccurs="0" name="ExternalControlNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="BibLatestChange" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="ItemsLatestChange" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="EResource" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="HiddenType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NotHidden"/>
+          <xs:enumeration value="Hidden"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SuppressType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Unsuppress"/>
+          <xs:enumeration value="Suppress"/>
+          <xs:enumeration value="SuppressThrough"/>
+          <xs:enumeration value="SuppressForNoItem"/>
+          <xs:enumeration value="NeverSuppress"/>
+          <xs:enumeration value="UndoManualSuppress"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/item" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:item="http://tlcdelivers.com/cx/schemas/item" xmlns:itemstatus="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:title="http://tlcdelivers.com/cx/schemas/title">
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/itemstatus"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/request"/>
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/title"/>
+      <xs:complexType name="Item">
+        <xs:annotation>
+          <xs:documentation><![CDATA[Item ID: The Item number (barcode). A required input for updateItem.<br/><br/>
+				BID: The unique number associated with an existing Bibliographic Record.<br/><br/>
+				Branch: Numeric value of the Branch associated with an item.<br/><br/>
+				Owning Branch: Numeric value of the Owning Branch associated with an item.<br/><br/>
+				Location: Numeric value of the Location associated with an Item.<br/><br/>
+				Owning Location: Numeric value of the Owning Location associated with an item.<br/><br/>
+				Media: Numeric value of the Media associated with an Item.<br/><br/>
+				Status: Status code of an item.  Status codes available include:  S = On Shelf, ST = On Shelf Temporary, SP = In Process, SG = Damaged, SM = Missing, SW = Withdrawn, SX = Not on Shelf, SC = Custom Status 1, SU = Custom Status 2, SS = Custom Status 3, SO = Custom Status 4, SI = Display, SD = Shelving Delay, C = Charged to patron (includes overdue and lost), CT = Charged Temporary, L = A9/Lost, LT = Lost Temporary, I = In Transit, IT = In Transit Temporary, H = Hold Shelf, HT = Hold Shelf Temporary, IH = Hold in Transit, T = Traced. Note that items currently in a transactional status cannot have their status updated via this method.<br/><br/>
+				Call Number: Item Call Number.<br/><br/>
+				Manually Suppressed: Whether or not an item is manually suppressed, where True = Suppressed and False = Not Manually Suppressed.<br/><br/>
+				Bucket: A list of Bucket data associated with the item. Each item can have up to four bucket entries, each of which consists of three elements.<br/>Position: The position of hierarchical data fields. Available positions are 1 - 4.<br/>Label: The field label associated with the selected bucket position.<br/>Data: The data associated with the selected bucket position.<br/><br/>
+				Chronology: Date of an issue or Item.  Available options are, Seasonal, Month/Day/Year, Year, Month/Year.<br/>Seasonal: Use for materials with a seasonal publication pattern.<br/>Season: Enumerated value indicating season of publication. Available values include: Winter, Spring, Summer, or Fall.<br/>Hemisphere: Enumerated value indicating the hemisphere of the publication.  Available values include: Northern or Southern<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/>MonthDayYear: Use for items with a Month, Day, Year publication pattern.<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/>Day: Restricted string indicating the month of publication. Must be two digits between 01-31<br/>Year: Use for items that are published yearly.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/>MonthYear: Use for items with a Month and Year publication pattern only.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/><br/>
+				Enumeration: Enumeration data associated with the item, which consists of the following elements:<br/>Position: Restricted string indicating the position of the enumerated value. Available positions are 1-4.<br/>Label:  The field label associated with the selected Enumeration position.<br/>Data: Restricted string indicating the data associated with the selected bucket position. Entry limited to 10 characters.<br/><br/>
+				Alternate Shelf Status: Alternate status information about the item that staff may use to communication information about the item in lieu of (or in addition to) the validated status codes and their descriptions.<br/><br/>
+				Reserve Loan Period: Not currently implemented.<br/><br/>
+				Reserve Media: Not currently implemented.<br/><br/>
+				Rotate Flag: Not currently implemented.<br/><br/>
+				Reserve Branch: Not currently implemented.<br/><br/>
+				Reserve Location: Not currently implemented.<br/><br/>
+				Reserve Type: Not currently implemented.<br/><br/>
+				Reserve Call Number: Not currently implemented.<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ItemID" type="xs:string"/>
+          <xs:element minOccurs="0" name="BID" type="request:PositiveLong"/>
+          <xs:element minOccurs="0" name="OwningBranch" type="xs:short"/>
+          <xs:element minOccurs="0" name="OwningLocation" type="xs:short"/>
+          <xs:element minOccurs="0" name="ReserveLoanPeriod" type="xs:short"/>
+          <xs:element minOccurs="0" name="ReserveMedia" type="xs:short"/>
+          <xs:element minOccurs="0" name="Status" type="xs:string"/>
+          <xs:element minOccurs="0" name="Media" type="xs:short"/>
+          <xs:element minOccurs="0" name="Price" type="xs:string"/>
+          <xs:element minOccurs="0" name="RotateFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="CallNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="Branch" type="xs:short"/>
+          <xs:element minOccurs="0" name="Location" type="xs:short"/>
+          <xs:element minOccurs="0" name="ReserveBranch" type="xs:short"/>
+          <xs:element minOccurs="0" name="ReserveLocation" type="xs:short"/>
+          <xs:element minOccurs="0" name="ReserveType" type="itemstatus:ReserveTypes"/>
+          <xs:element minOccurs="0" name="ReserveCallNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="ManuallySuppressed" type="xs:boolean"/>
+          <xs:element maxOccurs="4" minOccurs="0" name="Bucket" type="item:Bucket"/>
+          <xs:element minOccurs="0" name="Chronology" type="item:Chronology"/>
+          <xs:element maxOccurs="4" minOccurs="0" name="Enumeration" type="item:Enumeration"/>
+          <xs:element minOccurs="0" name="AlternateStatus" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Bucket">
+        <xs:annotation>
+          <xs:documentation><![CDATA[Position: The position of hierarchical data fields. Available positions are 1 - 4.<br/><br/>
+			Label: The field label associated with the selected bucket position.<br/><br/>
+			Data: The data associated with the selected bucket position.<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Position" type="item:BucketPosition"/>
+          <xs:element name="Label" type="xs:string"/>
+          <xs:element name="Data" type="item:BucketData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="BucketPosition">
+        <xs:restriction base="xs:positiveInteger">
+          <xs:minInclusive value="1"/>
+          <xs:maxInclusive value="4"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="BucketData">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="10"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="Chronology">
+        <xs:annotation>
+          <xs:documentation><![CDATA[Chronology: Date of an issue or Item.  Available options are, Seasonal, Month/Day/Year, Year, Month/Year.<br/>Seasonal: Use for materials with a seasonal publication pattern.<br/>Season: Enumerated value indicating season of publication. Available values include: Winter, Spring, Summer, or Fall.<br/>Hemisphere: Enumerated value indicating the hemisphere of the publication.  Available values include: Northern or Southern<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/>MonthDayYear: Use for items with a Month, Day, Year publication pattern.<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/>Day: Restricted string indicating the month of publication. Must be two digits between 01-31<br/>Year: Use for items that are published yearly.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.<br/>MonthYear: Use for items with a Month and Year publication pattern only.<br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999<br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+          <xs:element minOccurs="0" name="Seasonal" type="item:Seasonal"/>
+          <xs:element minOccurs="0" name="MonthDayYear" type="item:MonthDayYear"/>
+          <xs:element minOccurs="0" name="MonthYear" type="item:MonthYear"/>
+          <xs:element minOccurs="0" name="Year" type="item:Year"/>
+        </xs:choice>
+      </xs:complexType>
+      <xs:complexType name="Seasonal">
+        <xs:annotation>
+          <xs:documentation>Season: Enumerated value indicating season of publication. Available values include: Winter, Spring, Summer, or Fall.&lt;br/>Hemisphere: Enumerated value indicating the hemisphere of the publication.  Available values include: Northern or Southern&lt;br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999.&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Season" type="item:Season"/>
+          <xs:element name="Hemisphere" type="item:Hemisphere"/>
+          <xs:element name="Year" type="request:FourDigitYear"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="Season">
+        <xs:annotation>
+          <xs:documentation>Enumerated value indicating season of publication. Available values include: Winter, Spring, Summer, or Fall.&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Winter"/>
+          <xs:enumeration value="Spring"/>
+          <xs:enumeration value="Summer"/>
+          <xs:enumeration value="Fall"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="Hemisphere">
+        <xs:annotation>
+          <xs:documentation>Enumerated value indicating the hemisphere of the publication. Available values include: Northern or Southern&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Northern"/>
+          <xs:enumeration value="Southern"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="MonthDayYear">
+        <xs:annotation>
+          <xs:documentation>Use for items with a Month, Day, Year publication pattern.&lt;br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.&lt;br/>Day: Restricted string indicating the month of publication. Must be two digits between 01-31&lt;br/>Year: Use for items that are published yearly.&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Month" type="request:Month"/>
+          <xs:element name="Day" type="request:Day"/>
+          <xs:element name="Year" type="request:FourDigitYear"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MonthYear">
+        <xs:annotation>
+          <xs:documentation>Use for items with a Month and Year publication pattern only.&lt;br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999&lt;br/>Month: Restricted string indicating the month of publication. Must be two digits between 01-12.&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Month" type="request:Month"/>
+          <xs:element name="Year" type="request:FourDigitYear"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Year">
+        <xs:annotation>
+          <xs:documentation>Use for items that are published yearly.&lt;br/>Year: Restricted string indicating the year of publication. Must be four digits between 0000-9999&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Year" type="request:FourDigitYear"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Enumeration">
+        <xs:annotation>
+          <xs:documentation><![CDATA[Position: Restricted string indicating the position of the enumerated value.  Available positions are 1-4.<br/><br/>
+				Label: The field label associated with the selected Enumeration position.<br/><br/>
+				Data: Restricted string indicating the data associated with the selected bucket position. Entry limited to 10 characters.<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="Position" type="item:EnumerationPosition"/>
+          <xs:element name="Label" type="item:EnumerationLabel"/>
+          <xs:element name="Data" type="item:EnumerationData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="EnumerationLabel">
+        <xs:annotation>
+          <xs:documentation>The field label associated with the selected Enumeration position.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EnumerationPosition">
+        <xs:annotation>
+          <xs:documentation>Restricted string indicating the position of the enumerated value.  Available positions are 1-4.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:positiveInteger">
+          <xs:minInclusive value="1"/>
+          <xs:maxInclusive value="4"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="EnumerationData">
+        <xs:annotation>
+          <xs:documentation>Restricted string indicating the data associated with the selected bucket position. Entry limited to 10 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="FillItem">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains information about the Fill List items.<br/>
+				Title: Title of a work, usually from the Bib 245 tag.<br/>
+				Author: The author of the work, usually from the Bib 1xx tag.<br/>
+				LocationCode: The Location Code associated with the item.<br/>
+				CallNumberFull: Item call number that includes formatted chronology, enumeration, and bucket data when present.<br/>
+				NormalizedCallNumber: Formatted Call Number, derived from Full Call Number.<br/>
+				Item: Item number (barcode).<br/>
+				ItemGUID: The static identifier associated with the item.<br/>
+				BranchCode: The item's Branch Code.<br/>
+				PickupBranchCode: The item's Pickup Branch Code.<br/>
+				MediaCode: The Media Code associated with the item.<br/>
+				Type: S = Issue Hold, T = Title Hold, and I = Item Hold.<br/>
+				CircBranch: The point of circulation for the item's Branch.<br/>
+				Status Date: The date that the item's status last changed.<br/>
+				BID: The unique identifier for the bibliographic record.<br/>
+				ISID: The unique identifier for the issue set.<br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Title" type="xs:string"/>
+          <xs:element minOccurs="0" name="LocationCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="CallNumberFull" type="xs:string"/>
+          <xs:element minOccurs="0" name="NormalizedCallNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="Author" type="xs:string"/>
+          <xs:element minOccurs="0" name="Item" type="xs:string"/>
+          <xs:element minOccurs="0" name="ItemGUID" type="xs:integer"/>
+          <xs:element minOccurs="0" name="BranchCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="MediaCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="Type" type="xs:string"/>
+          <xs:element minOccurs="0" name="CircBranch" type="xs:string"/>
+          <xs:element minOccurs="0" name="StatusDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="PickUpBranchCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="BID" type="request:PositiveLong"/>
+          <xs:element minOccurs="0" name="ISID" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fullItem">
+        <xs:annotation>
+          <xs:documentation><![CDATA[Item: Item number (barcode). Included in the Brief and Full Projection<br/><br/>
+				Branch: Valid branch code from the BRANCH table. Included in the Brief and Full Projection<br/><br/>
+				Location: Valid location code from the LOCATION table. Included in the Brief and Full Projection<br/><br/>
+				Media: Valid media number from the MEDIA table. Included in the Brief and Full Projection<br/><br/>
+				CN: Item-level call number, variously derived. Included in Full Projection only<br/><br/>
+				Status Date: Date the item's status changed. Included in the Brief and Full Projection<br/><br/>
+				BID: Unique Bibliographic record ID number.  Included in the Brief and Full Projection<br/><br/>
+				Circ History: Number of times item has been charged/renewed since counter last re-set. Included in the Brief and Full Projection<br/><br/>
+				Cumulative History: Number of times item has been charged/renewed since its creation. Included in the Brief and Full Projection<br/><br/>
+				In House Circ: Number of times item has been returned with an on shelf status since counter last re-set. Included in the Brief and Full Projection<br/><br/>
+				Holds History: # of times item has gone to Hold Shelf status since counter set. Included in Brief and Full Projection<br/><br/>
+				Title: Title of a work, usually from the Bib 245 tag. Included in Brief and Full Projection<br/><br/>
+				Author: Author of a work, from the Bib 100 tag. Included in Brief and Full Projection<br/><br/>
+				Occur: Unique occurrence number. Included in Full Projection only<br/><br/>
+				OwningBranch: Numeric value of owning branch. Included in Full Projection only<br/><br/>
+				OwningLocation: Numeric value of owning location. Included in Full Projection only<br/><br/>
+				ReserveLoanPeriod: Valid Reserve loan period from the RLP file. Included in Full Projection only<br/><br/>
+				ReserveMedia: Valid Reserve media type value from the RTY file. Included in Full Projection only<br/><br/>
+				DueDate: (Tandem Julian Timestamp) Date the item is due or not needed. Included in Full Projection only<br/><br/>
+				Notes: Indicates whether a patron has note(s) attached; must be either "*" or blank. Included in Full Projection only<br/><br/>
+				Type: Indicates whether an item record originated in Circulation or Acquisitions. Included in Full Projection only<br/><br/>
+				EditDate: Date the item was last edited. Included in Full Projection only<br/><br/>
+				UserID: Logon alias of staff who last edited item. Included in Full Projection only<br/><br/>
+				Branch1: Valid branch value from the BRA file. Included in Full Projection only<br/><br/>
+				CreationDate: Date the item record was created (converted). Included in Full Projection only<br/><br/>
+				InstBit: Numeric code from Institution table. Included in Full Projection only<br/><br/>
+				ISID: Issue set ID number references ISSUESET table. Included in Full Projection only<br/><br/>
+				Suppress: Y/N:  Hidden item. Included in Full Projection only<br/><br/>
+				ReserveBranch: Branch of reserve item. Included in Full Projection only<br/><br/>
+				ReserveLocation: Location of reserve item. Included in Full Projection only<br/><br/>
+				ReserveType: Type of item; 0 - regular, 1-reserve, 2- reserve only. Included in Full Projection only<br/><br/>
+				ReserveCN: Call Number of Reserve Item. Variously derived. Included in Full Projection only<br/><br/>
+				Folder: Number representing a particular collection of records for an institution. Included in Full Projection only<br/><br/>
+				CallNumberFull: Call number of a work, variously derived. Included in the Brief and Full Projection<br/><br/>
+				PublicationDate: Date of publication of title. Included in Full Projection only<br/><br/>
+				Language: Language of the work. Included in Full Projection only<br/><br/>
+				RecordType: Bytes 6 and 7 of the bibliographic leader. Included in Full Projection only<br/><br/>
+				TitleIndicators: Indicator field from title tag. Included in Full Projection only<br/><br/>
+				BibType: Flag indicating if the title is full (0) or temporary (1).  Included in Full Projection only<br/><br/>
+				HiddenType: Flag indicating whether to display the bib record (0 = show; 1 = hide). Included in Full Projection only<br/><br/>
+				AcqType: Acquisitions type (0 = Book in house; 1 = Book on order). Included in Full Projection only<br/><br/>
+				ISBN: International Standard Book Number. Included in Full Projection only<br/><br/>
+				BibSuppressDate: Date through which to Suppress display of the bib record. Included in Full Projection only<br/><br/>
+				BibSuppressType: Flag indicating under what conditions to set the HiddenType flag (0 = auto, 1 = manual, 2 = through date, 3 = for no item, 4 = never). Included in Full Projection only<br/><br/>
+				UPC: Universal Product Code for title, from 024 tag. Included in Full Projection only<br/><br/>
+				BibLatestChange: Time of latest change to bib record. Included in Full Projection only<br/><br/>
+				ItemsLatestChange: Time of latest change to items on bib record. Included in Full Projection only<br/><br/>
+				eResource: 'Y' or 'N'. Indicates if a bid is an eresource or not. Included in Full Projection only<br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="item:Item">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="StatDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="CircHistory" type="xs:short"/>
+              <xs:element minOccurs="0" name="CumulativeHistory" type="xs:short"/>
+              <xs:element minOccurs="0" name="InHouseCirc" type="xs:short"/>
+              <xs:element minOccurs="0" name="HoldHistory" type="xs:short"/>
+              <xs:element minOccurs="0" name="Title" type="xs:string"/>
+              <xs:element minOccurs="0" name="Author" type="xs:string"/>
+              <xs:element minOccurs="0" name="Occur" type="xs:short"/>
+              <xs:element minOccurs="0" name="DueDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="Notes" type="xs:string"/>
+              <xs:element minOccurs="0" name="Type" type="xs:string"/>
+              <xs:element minOccurs="0" name="EditDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="UserId" type="xs:string"/>
+              <xs:element minOccurs="0" name="Branch1" type="xs:int"/>
+              <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="InstBit" type="xs:short"/>
+              <xs:element minOccurs="0" name="ISID" type="xs:integer"/>
+              <xs:element minOccurs="0" name="Suppress" type="xs:string"/>
+              <xs:element minOccurs="0" name="Folder" type="xs:short"/>
+              <xs:element minOccurs="0" name="CallNumberFull" type="xs:string"/>
+              <xs:element minOccurs="0" name="PublicationDate" type="xs:string"/>
+              <xs:element minOccurs="0" name="Language" type="xs:string"/>
+              <xs:element minOccurs="0" name="RecordType" type="xs:string"/>
+              <xs:element minOccurs="0" name="TitleIndicators" type="xs:string"/>
+              <xs:element minOccurs="0" name="BibType" type="xs:int"/>
+              <xs:element minOccurs="0" name="HiddenType" type="title:HiddenType"/>
+              <xs:element minOccurs="0" name="AcqType" type="item:AcqType"/>
+              <xs:element minOccurs="0" name="ISBN" type="xs:string"/>
+              <xs:element minOccurs="0" name="BibSuppressDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="BibSuppressType" type="title:SuppressType"/>
+              <xs:element minOccurs="0" name="UPC" type="xs:string"/>
+              <xs:element minOccurs="0" name="BibLatestChange" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="ItemsLatestChange" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="EResource" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="CopiesOnBid" type="xs:int"/>
+              <xs:element minOccurs="0" name="HoldsOnBid" type="xs:int"/>
+              <xs:element minOccurs="0" name="ItemHoldsOnBid" type="xs:int"/>
+              <xs:element minOccurs="0" name="TitleHoldsOnBid" type="xs:int"/>
+              <xs:element minOccurs="0" name="IssueHoldsOnBid" type="xs:int"/>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="ItemNote" type="itemstatus:ItemNote"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StaffItem">
+        <xs:complexContent>
+          <xs:extension base="item:FillItem">
+            <xs:annotation>
+              <xs:documentation>Status: Current status: S = On Shelf, ST = Shelf Temp Item, C = Charged to patron (includes odue and lost),CT = Charge Temp Item,  L = A9/Lost, LT = A9/Lost temp, I = In Transit, IT = In transit Temp Item, H = Hold Shelf,  HT = Hold Shelf Temp, IH = Hold In Transit, T = Traced &lt;br/>&lt;br/></xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Status" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="AcqType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="InHouse"/>
+          <xs:enumeration value="OnOrder"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="WhoHas">
+        <xs:complexContent>
+          <xs:extension base="item:WHOPatron">
+            <xs:sequence>
+              <xs:element name="ItemID" type="xs:string"/>
+              <xs:element name="Status" type="xs:string"/>
+              <xs:element name="ChargeOnDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="DueOnDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="WhoHadItem">
+        <xs:complexContent>
+          <xs:extension base="item:WHOPatron">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AltID" type="xs:string"/>
+              <xs:element name="ChargeDate" type="xs:dateTime"/>
+              <xs:element name="ReturnDate" type="xs:dateTime"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="WhoHad">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="WhoHadItem" type="item:WhoHadItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WhoOwesItem">
+        <xs:complexContent>
+          <xs:extension base="item:WHOPatron">
+            <xs:sequence>
+              <xs:element name="TransactionType" type="xs:string"/>
+              <xs:element name="DueDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime"/>
+              <xs:element name="Branch" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="WhoOwes">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="WhoOwesItem" type="item:WhoOwesItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WhoWantsItem">
+        <xs:complexContent>
+          <xs:extension base="item:WHOPatron">
+            <xs:sequence>
+              <xs:element name="TransactionType" type="xs:string"/>
+              <xs:element name="DatePlaced" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="NNADate" type="xs:dateTime"/>
+              <xs:element name="PickupAt" type="xs:string"/>
+              <xs:element name="NumberInQueue" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="WHOPatron">
+        <xs:sequence>
+          <xs:element name="PatronName" type="xs:string"/>
+          <xs:element name="PatronType" type="xs:string"/>
+          <xs:element name="PatronID" type="xs:string"/>
+          <xs:element minOccurs="0" name="Phone1" type="xs:string"/>
+          <xs:element minOccurs="0" name="Phone2" type="xs:string"/>
+          <xs:element minOccurs="0" name="Email" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WhoWants">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="WhoWantsItem" type="item:WhoWantsItem"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" jaxb:version="2.1" targetNamespace="http://tlcdelivers.com/cx/schemas/systemitemcodes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:systemitemcodes="http://tlcdelivers.com/cx/schemas/systemitemcodes">
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/request"/>
+      <xs:complexType name="SystemItemCodes">
+        <xs:annotation>
+          <xs:appinfo>
+            <jaxb:class implClass="org.carl.api.code.SystemItemCodes"/>
+          </xs:appinfo>
+          <xs:documentation><![CDATA[Code: 1 to 2 letter status code associated with the Status.  The status codes do not change in the database.  For example, C is always for Checked Out materials, S is always for On Shelf materials.Description: The description of the status.  This value can be modified by the library to reflect whatever customized wording the library would like.  While the Description can change, the Status Code will stay the same.<br/><br/>
+				Archived: Indicates whether or not the status is Archived, and not available for use: Y = archived; N  = not archived.<br/><br/>
+				Load: Indicates whether or not the status is available to use when Loading items: Y = available; N  = not available.<br/><br/>
+				Shelf: Indicates whether or not the status is available when editing items: Y = available; N  = not available<br/><br/>
+				Suppressed: Indicates whether or not the status is automatically suppressed: Y = suppressed; N  = not suppressed.<br/><br/>
+				Type: Only statuses with blank (or null) should be returned.<br/><br/>
+				Admin: Indicates whether or not the status is displayed in CARL.X Administration>Application Parameters>Public Access>Item Statuses tab: Y = displayed; N  = not displayed.<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string"/>
+          <xs:element minOccurs="0" name="InstBit" type="xs:short"/>
+          <xs:element minOccurs="0" name="Description" type="xs:string"/>
+          <xs:element minOccurs="0" name="Type" type="xs:string"/>
+          <xs:element minOccurs="0" name="Archived" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="Load" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="Shelf" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="Suppressed" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="Admin" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SystemItemCodesInsert">
+        <xs:complexContent>
+          <xs:restriction base="systemitemcodes:SystemItemCodes">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Code" type="xs:string"/>
+              <xs:element minOccurs="0" name="InstBit" type="xs:short"/>
+              <xs:element minOccurs="0" name="Description" type="xs:string"/>
+              <xs:element minOccurs="0" name="Type" type="xs:string"/>
+              <xs:element minOccurs="0" name="Archived" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="Load" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="Shelf" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="Suppressed" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="Admin" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tlcdelivers.com/cx/schemas/search" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:request="http://tlcdelivers.com/cx/schemas/request" xmlns:search="http://tlcdelivers.com/cx/schemas/search">
+      <xs:import namespace="http://tlcdelivers.com/cx/schemas/request"/>
+      <xs:simpleType name="SearchCatalogType">
+        <xs:annotation>
+          <xs:documentation>This element contains the available catalog search types&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Author/Name">
+            <xs:annotation>
+              <xs:documentation>Searches words from name headings without regard
+						to word order.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse All Headings">
+            <xs:annotation>
+              <xs:documentation>Returns a single alphabetical listing of all
+						authority headings including name, subject, series and uniform
+						title. Response also includes a follow on token for paging, as
+						well as "Titles For Heading" tokens.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Author/Name Headings">
+            <xs:annotation>
+              <xs:documentation>Returns an alphabetical listing of name headings
+						showing the number of bibliographic records for each heading as
+						well as authority information. Personal names must be searched
+						with surname first. Response also includes a follow on token for
+						paging, as well as "Titles For Heading" tokens.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Call Number">
+            <xs:annotation>
+              <xs:documentation>Returns a list of bibliographic records sorted by
+						title-level call number, starting with the call number searched
+						(or the call number following closest).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Call Number 1">
+            <xs:annotation>
+              <xs:documentation>For Call Number searches set up to search
+						specific call number types (i.e. Dewey Abridged, Dewey Unabridged,
+						LC, Gov Docs), returns a list of bibliographic records sorted by
+						specific call number, starting with the call number searched (or
+						the call number following closest).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Call Number 2">
+            <xs:annotation>
+              <xs:documentation>For Call Number searches set up to search
+						specific call number types (i.e. Dewey Abridged, Dewey Unabridged,
+						LC, Gov Docs), returns a list of bibliographic records sorted by
+						specific call number, starting with the call number searched (or
+						the call number following closest).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Call Number 3">
+            <xs:annotation>
+              <xs:documentation>For Call Number searches set up to search
+						specific call number types (i.e. Dewey Abridged, Dewey Unabridged,
+						LC, Gov Docs), returns a list of bibliographic records sorted by
+						specific call number, starting with the call number searched (or
+						the call number following closest).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Call Number 4">
+            <xs:annotation>
+              <xs:documentation>For Call Number searches set up to search
+						specific call number types (i.e. Dewey Abridged, Dewey Unabridged,
+						LC, Gov Docs), returns a list of bibliographic records sorted by
+						specific call number, starting with the call number searched (or
+						the call number following closest).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Call Number Item">
+            <xs:annotation>
+              <xs:documentation>Returns a list of bibliographic records sorted by
+						item-level call number, starting with the call number searched (or
+						the call number following closest).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Series Headings">
+            <xs:annotation>
+              <xs:documentation>Returns an alphabetical listing of series
+						headings showing the number of bibliographic records for each
+						heading as well as authority information. Response also includes a
+						follow on token for paging, as well as "Titles For Heading"
+						tokens.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Subject Headings">
+            <xs:annotation>
+              <xs:documentation>Returns an alphabetical listing of subject
+						headings showing the number of bibliographic records for each
+						heading as well as authority information. Response also includes a
+						follow on token for paging, as well as "Titles For Heading"
+						tokens.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Browse Title">
+            <xs:annotation>
+              <xs:documentation>Returns a list of bibliographic records sorted by
+						title, starting with the phrase searched (or the title following
+						closest to the phrase searched).</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="CARL BID">
+            <xs:annotation>
+              <xs:documentation>Searches the CARL BID (Bibliographic Identifier),
+						the unique number assigned to a bibliographic record as it enters
+						your CARL database.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Command">
+            <xs:annotation>
+              <xs:documentation>Quick Search Commands are available for all
+						search types and can be used to bypass the selection of a Search
+						Type.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ISBN">
+            <xs:annotation>
+              <xs:documentation>Searches ISBN data from bibliographic tag 020 and
+						Acquisitions orders.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ISSN">
+            <xs:annotation>
+              <xs:documentation>Searches ISSN data from bibliographic tag 022 and
+						Acquisitions orders.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Keyword">
+            <xs:annotation>
+              <xs:documentation>Searches all words that appear in bibliographic
+						records.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LCCN">
+            <xs:annotation>
+              <xs:documentation>Searches LCCN data from bibliographic tag 010.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Matcher">
+            <xs:annotation>
+              <xs:documentation>Searches number data in bibliographic records,
+						including OCLC Control Number.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Name Headings">
+            <xs:annotation>
+              <xs:documentation>Searches words in name headings without regard to
+						word order. Returns an alphabetical list of headings showing the
+						number of associated bibliographic records, authority information,
+						and "Titles For Heading" tokens.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Name/Word">
+            <xs:annotation>
+              <xs:documentation>Searches words from name headings, combined with
+						words from bibliographic records.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Series">
+            <xs:annotation>
+              <xs:documentation>Searches words in series headings without regard
+						to word order. Returns a list of bibliographic records where the
+						search terms entered are found in a Series Heading that has been
+						indexed for searching.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Series Headings">
+            <xs:annotation>
+              <xs:documentation>Searches words in series headings without regard
+						to word order. Returns an alphabetical list of those headings
+						showing the number of associated bibliographic records, authority
+						information and "Titles For Heading" tokens.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Subject">
+            <xs:annotation>
+              <xs:documentation>Searches words in subject headings without regard
+						to word order. Returns a list of bibliographic records where the
+						search terms entered are found in a Subject Heading that has been
+						indexed for searching.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Subject Headings">
+            <xs:annotation>
+              <xs:documentation>Searches words in subject headings without regard
+						to word order. Returns an alphabetical list of those headings
+						showing the number of associated bibliographic records, authority
+						information, and "Titles For Heading" tokens.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Title Word">
+            <xs:annotation>
+              <xs:documentation>Searches title data in bibliographic records
+						without regard to word order.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Titles for Heading">
+            <xs:annotation>
+              <xs:documentation>Utilizing a token generated by searches that lead
+						to authority data, retrieves bibliographic records associated with
+						a given authority record.</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AllPatronSearch">
+        <xs:annotation>
+          <xs:documentation>This element contains all the available patron searches&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Patron ID"/>
+          <xs:enumeration value="General User ID"/>
+          <xs:enumeration value="Alternate ID"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="BasicPatronSearch">
+        <xs:annotation>
+          <xs:documentation>This element contains the basic available patron searches&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="search:AllPatronSearch">
+          <xs:enumeration value="Patron ID"/>
+          <xs:enumeration value="General User ID"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SearchFieldType">
+        <xs:annotation>
+          <xs:documentation>This element contains the available catalog information search types&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BID"/>
+          <xs:enumeration value="ISBN"/>
+          <xs:enumeration value="ITEM"/>
+          <xs:enumeration value="PATRON"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="Limiters">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains information for search limiting<br/><br/>
+				DateLimit:  Limits the search results to those that match the given date criteria<br/><br/>
+				BranchLimit:  Limits the search results to those that match the given branch(es)<br/><br/>
+				FormatLimit:  Limits the search results to those that match the given format(s)<br/><br/>
+				LanguageLimit:  Limits the search results to those that match the given language(s)<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateLimit" type="search:DateLimit">
+            <xs:annotation>
+              <xs:documentation>Limits the search results to those that match the
+						given date criteria</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BranchLimit" type="request:NonEmptyString">
+            <xs:annotation>
+              <xs:documentation>Limits the search results to those that match the
+						given branch(es)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="FormatLimit" type="xs:short">
+            <xs:annotation>
+              <xs:documentation>Limits the search results to those that match the
+						given format(s)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="LanguageLimit" type="request:NonEmptyString">
+            <xs:annotation>
+              <xs:documentation>Limits the search results to those that match the
+						given language(s)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DateLimit">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This element contains the date limiting information<br/><br/>
+				DateFilter:  The criteria on which to compare the dates in the results<br/><br/>
+				Date:  The date as a 4-digit year which can be appear either once or twice depending on whether the date filter is a range or not<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="DateFilter" type="search:DateFilterType">
+            <xs:annotation>
+              <xs:documentation>The criteria on which to compare the dates in the
+						results</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="2" minOccurs="0" name="Date" type="xs:integer">
+            <xs:annotation>
+              <xs:documentation>The date as a 4-digit year which can be appear
+						either once or twice depending on whether the date filter is a
+						range or not</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="DateFilterType">
+        <xs:annotation>
+          <xs:documentation>The types of date limiting. Between requires 2 dates. None requires 0 dates. All others require 1.&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Equals">
+            <xs:annotation>
+              <xs:documentation>Filters on results that are Equal to the given
+						date</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Between">
+            <xs:annotation>
+              <xs:documentation>Filters on results that are Between the given
+						dates (inclusive)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Before">
+            <xs:annotation>
+              <xs:documentation>Filters on results that are Before the given date</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="After">
+            <xs:annotation>
+              <xs:documentation>Filters on results that are After the given date</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:documentation>No date filter is applied to results</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ComparativeSearchApplicationType">
+        <xs:annotation>
+          <xs:documentation>The types of search applications.&lt;br/>&lt;br/></xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="contains"/>
+          <xs:enumeration value="does not contain"/>
+          <xs:enumeration value="exact match"/>
+          <xs:enumeration value="begins with"/>
+          <xs:enumeration value="ends with"/>
+          <xs:enumeration value="less than"/>
+          <xs:enumeration value="greater than"/>
+          <xs:enumeration value="equal to"/>
+          <xs:enumeration value="between"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://tlcdelivers.com/cx/schemas/itemsuppression" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://tlcdelivers.com/cx/schemas/itemsuppression">
+      <xs:complexType name="ItemSuppression">
+        <xs:annotation>
+          <xs:documentation><![CDATA[item: The item identifier.<br/><br/>
+                bid: The unique number associated with an existing Bibliographic Record.<br/><br/>
+                instbit: Institution identifier.<br/><br/>
+                suppress: supressed indicator.<br/><br/>
+                suppresstype: Type of suppression.<br/><br/>
+                type: Type of suppression.<br/><br/>
+                status: Status of an item.  S = On Shelf, ST = On Shelf Temporary, SP = In Process, SG = Damaged, SM = Missing, SW = Withdrawn, SX = Not on Shelf, SC = Custom Status 1, SU = Custom Status 2, SS = Custom Status 3, SO = Custom Status 4, SI = Display, SD = Shelving Delay, C = Charged to patron (includes overdue and lost), CT = Charged Temporary, L = A9/Lost, LT = Lost Temporary, I = In Transit, IT = In Transit Temporary, H = Hold Shelf, HT = Hold Shelf Temporary, IH = Hold in Transit, T = Traced. A required input for createItem (S, SP, ST).<br/><br/>
+                location: Numeric value of the Location associated with an Item.<br/><br/>
+                media: Numeric value of the Media associated with an item.<br/><br/>
+                branch: Numeric value of the Branch associated with an item.<br/><br/>
+                branchSuppressed: Branch supressed indicator.<br/><br/>
+                locationSuppressed: Location supressed indicator.<br/><br/>
+                mediaSuppressed: Media supressed indicator.<br/><br/>
+                statusCodeSuppressed: status code supressed indicator.<br/><br/>
+                suppressed: supressed indicator.<br/><br/>]]]]>><![CDATA[</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="item" type="xs:string"/>
+          <xs:element name="bid" type="xs:int"/>
+          <xs:element name="instbit" type="xs:int"/>
+          <xs:element name="suppress" type="xs:string"/>
+          <xs:element name="suppresstype" type="xs:int"/>
+          <xs:element name="type" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="location" type="xs:int"/>
+          <xs:element minOccurs="0" name="media" type="xs:int"/>
+          <xs:element minOccurs="0" name="branch" type="xs:int"/>
+          <xs:element name="branchSuppressed" type="xs:boolean"/>
+          <xs:element name="locationSuppressed" type="xs:boolean"/>
+          <xs:element name="mediaSuppressed" type="xs:boolean"/>
+          <xs:element name="statusCodeSuppressed" type="xs:boolean"/>
+          <xs:element name="suppressed" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateTempItemResponse">
+    <wsdl:part element="sch0:CreateTempItemResponse" name="CreateTempItemResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CalculateFullCallNumberRequest">
+    <wsdl:part element="sch0:CalculateFullCallNumberRequest" name="CalculateFullCallNumberRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetFillListRequest">
+    <wsdl:part element="sch0:GetFillListRequest" name="GetFillListRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteItemRequest">
+    <wsdl:part element="sch0:DeleteItemRequest" name="DeleteItemRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateItemNoteResponse">
+    <wsdl:part element="sch0:UpdateItemNoteResponse" name="UpdateItemNoteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetFillListResponse">
+    <wsdl:part element="sch0:GetFillListResponse" name="GetFillListResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemListRequest">
+    <wsdl:part element="sch0:GetItemListRequest" name="GetItemListRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemNotesResponse">
+    <wsdl:part element="sch0:GetItemNotesResponse" name="GetItemNotesResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteItemNoteRequest">
+    <wsdl:part element="sch0:DeleteItemNoteRequest" name="DeleteItemNoteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateItemNoteRequest">
+    <wsdl:part element="sch0:UpdateItemNoteRequest" name="UpdateItemNoteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemSuppressionResponse">
+    <wsdl:part element="sch0:GetItemSuppressionResponse" name="GetItemSuppressionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemListResponse">
+    <wsdl:part element="sch0:GetItemListResponse" name="GetItemListResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateItemResponse">
+    <wsdl:part element="sch0:UpdateItemResponse" name="UpdateItemResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetWHOResponse">
+    <wsdl:part element="sch0:GetWHOResponse" name="GetWHOResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateTempItemRequest">
+    <wsdl:part element="sch0:CreateTempItemRequest" name="CreateTempItemRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateItemNoteRequest">
+    <wsdl:part element="sch0:CreateItemNoteRequest" name="CreateItemNoteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateItemRequest">
+    <wsdl:part element="sch0:UpdateItemRequest" name="UpdateItemRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableItemStatusResponse">
+    <wsdl:part element="sch0:GetAvailableItemStatusResponse" name="GetAvailableItemStatusResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetWHORequest">
+    <wsdl:part element="sch0:GetWHORequest" name="GetWHORequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemSuppressionRequest">
+    <wsdl:part element="sch0:GetItemSuppressionRequest" name="GetItemSuppressionRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetItemNotesRequest">
+    <wsdl:part element="sch0:GetItemNotesRequest" name="GetItemNotesRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CalculateFullCallNumberResponse">
+    <wsdl:part element="sch0:CalculateFullCallNumberResponse" name="CalculateFullCallNumberResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateItemRequest">
+    <wsdl:part element="sch0:CreateItemRequest" name="CreateItemRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteItemNoteResponse">
+    <wsdl:part element="sch0:DeleteItemNoteResponse" name="DeleteItemNoteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateItemNoteResponse">
+    <wsdl:part element="sch0:CreateItemNoteResponse" name="CreateItemNoteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableItemStatusRequest">
+    <wsdl:part element="sch0:GetAvailableItemStatusRequest" name="GetAvailableItemStatusRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CarlXAPI">
+    <wsdl:operation name="CreateTempItem">
+      <wsdl:input message="sch0:CreateTempItemRequest" name="CreateTempItemRequest"></wsdl:input>
+      <wsdl:output message="sch0:CreateTempItemResponse" name="CreateTempItemResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateFullCallNumber">
+      <wsdl:input message="sch0:CalculateFullCallNumberRequest" name="CalculateFullCallNumberRequest"></wsdl:input>
+      <wsdl:output message="sch0:CalculateFullCallNumberResponse" name="CalculateFullCallNumberResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFillList">
+      <wsdl:input message="sch0:GetFillListRequest" name="GetFillListRequest"></wsdl:input>
+      <wsdl:output message="sch0:GetFillListResponse" name="GetFillListResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <wsdl:input message="sch0:DeleteItemRequest" name="DeleteItemRequest"></wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemNote">
+      <wsdl:input message="sch0:UpdateItemNoteRequest" name="UpdateItemNoteRequest"></wsdl:input>
+      <wsdl:output message="sch0:UpdateItemNoteResponse" name="UpdateItemNoteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemList">
+      <wsdl:input message="sch0:GetItemListRequest" name="GetItemListRequest"></wsdl:input>
+      <wsdl:output message="sch0:GetItemListResponse" name="GetItemListResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemNotes">
+      <wsdl:input message="sch0:GetItemNotesRequest" name="GetItemNotesRequest"></wsdl:input>
+      <wsdl:output message="sch0:GetItemNotesResponse" name="GetItemNotesResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemNote">
+      <wsdl:input message="sch0:DeleteItemNoteRequest" name="DeleteItemNoteRequest"></wsdl:input>
+      <wsdl:output message="sch0:DeleteItemNoteResponse" name="DeleteItemNoteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemSuppression">
+      <wsdl:input message="sch0:GetItemSuppressionRequest" name="GetItemSuppressionRequest"></wsdl:input>
+      <wsdl:output message="sch0:GetItemSuppressionResponse" name="GetItemSuppressionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <wsdl:input message="sch0:UpdateItemRequest" name="UpdateItemRequest"></wsdl:input>
+      <wsdl:output message="sch0:UpdateItemResponse" name="UpdateItemResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWHO">
+      <wsdl:input message="sch0:GetWHORequest" name="GetWHORequest"></wsdl:input>
+      <wsdl:output message="sch0:GetWHOResponse" name="GetWHOResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItemNote">
+      <wsdl:input message="sch0:CreateItemNoteRequest" name="CreateItemNoteRequest"></wsdl:input>
+      <wsdl:output message="sch0:CreateItemNoteResponse" name="CreateItemNoteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableItemStatus">
+      <wsdl:input message="sch0:GetAvailableItemStatusRequest" name="GetAvailableItemStatusRequest"></wsdl:input>
+      <wsdl:output message="sch0:GetAvailableItemStatusResponse" name="GetAvailableItemStatusResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItem">
+      <wsdl:input message="sch0:CreateItemRequest" name="CreateItemRequest"></wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CarlXAPISoap11" type="sch0:CarlXAPI">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CreateTempItem">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="CreateTempItemRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreateTempItemResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateFullCallNumber">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="CalculateFullCallNumberRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CalculateFullCallNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFillList">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetFillListRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetFillListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DeleteItemRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemNote">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="UpdateItemNoteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateItemNoteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemList">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetItemListRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetItemListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemNotes">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetItemNotesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetItemNotesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemNote">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DeleteItemNoteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteItemNoteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemSuppression">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetItemSuppressionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetItemSuppressionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="UpdateItemRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateItemResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWHO">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetWHORequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetWHOResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItemNote">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="CreateItemNoteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreateItemNoteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableItemStatus">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetAvailableItemStatusRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetAvailableItemStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItem">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="CreateItemRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarlXAPIService">
+    <wsdl:port binding="sch0:CarlXAPISoap11" name="CarlXAPISoap11">
+      <soap:address location="http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint></con:endpoints><con:operation id="55ca2f1c-12aa-4d2c-92fa-da46351b9b77" isOneWay="false" action="" name="CalculateFullCallNumber" bindingOperationName="CalculateFullCallNumber" type="Request-Response" outputName="CalculateFullCallNumberResponse" inputName="CalculateFullCallNumberRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ba929fa8-3da3-4b0f-a05e-1c5ebd7838eb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request" xmlns:item1="http://tlcdelivers.com/cx/schemas/item">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:CalculateFullCallNumberRequest>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+         <item:Item>\r
+            <!--Optional:-->\r
+            <item1:ItemID>?</item1:ItemID>\r
+            <!--Optional:-->\r
+            <item1:BID>?</item1:BID>\r
+            <!--Optional:-->\r
+            <item1:OwningBranch>?</item1:OwningBranch>\r
+            <!--Optional:-->\r
+            <item1:OwningLocation>?</item1:OwningLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveLoanPeriod>?</item1:ReserveLoanPeriod>\r
+            <!--Optional:-->\r
+            <item1:ReserveMedia>?</item1:ReserveMedia>\r
+            <!--Optional:-->\r
+            <item1:Status>?</item1:Status>\r
+            <!--Optional:-->\r
+            <item1:Media>?</item1:Media>\r
+            <!--Optional:-->\r
+            <item1:Price>?</item1:Price>\r
+            <!--Optional:-->\r
+            <item1:RotateFlag>?</item1:RotateFlag>\r
+            <!--Optional:-->\r
+            <item1:CallNumber>?</item1:CallNumber>\r
+            <!--Optional:-->\r
+            <item1:Branch>?</item1:Branch>\r
+            <!--Optional:-->\r
+            <item1:Location>?</item1:Location>\r
+            <!--Optional:-->\r
+            <item1:ReserveBranch>?</item1:ReserveBranch>\r
+            <!--Optional:-->\r
+            <item1:ReserveLocation>?</item1:ReserveLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveType>?</item1:ReserveType>\r
+            <!--Optional:-->\r
+            <item1:ReserveCallNumber>?</item1:ReserveCallNumber>\r
+            <!--Optional:-->\r
+            <item1:ManuallySuppressed>?</item1:ManuallySuppressed>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Bucket>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Bucket>\r
+            <!--Optional:-->\r
+            <item1:Chronology>\r
+               <!--You have a CHOICE of the next 4 items at this level-->\r
+               <!--Optional:-->\r
+               <item1:Seasonal>\r
+                  <item1:Season>?</item1:Season>\r
+                  <item1:Hemisphere>?</item1:Hemisphere>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Seasonal>\r
+               <!--Optional:-->\r
+               <item1:MonthDayYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Day>?</item1:Day>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthDayYear>\r
+               <!--Optional:-->\r
+               <item1:MonthYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthYear>\r
+               <!--Optional:-->\r
+               <item1:Year>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Year>\r
+            </item1:Chronology>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Enumeration>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Enumeration>\r
+            <!--Optional:-->\r
+            <item1:AlternateStatus>?</item1:AlternateStatus>\r
+         </item:Item>\r
+      </item:CalculateFullCallNumberRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/CalculateFullCallNumberRequest"/></con:call><con:call id="cffbb2b0-de08-42c6-831e-902e7cd87bcc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request" xmlns:item1="http://tlcdelivers.com/cx/schemas/item">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:CalculateFullCallNumberRequest>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+         <item:Item>\r
+            <!--Optional:-->\r
+            <item1:ItemID>?</item1:ItemID>\r
+            <!--Optional:-->\r
+            <item1:BID>?</item1:BID>\r
+            <!--Optional:-->\r
+            <item1:OwningBranch>?</item1:OwningBranch>\r
+            <!--Optional:-->\r
+            <item1:OwningLocation>?</item1:OwningLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveLoanPeriod>?</item1:ReserveLoanPeriod>\r
+            <!--Optional:-->\r
+            <item1:ReserveMedia>?</item1:ReserveMedia>\r
+            <!--Optional:-->\r
+            <item1:Status>?</item1:Status>\r
+            <!--Optional:-->\r
+            <item1:Media>?</item1:Media>\r
+            <!--Optional:-->\r
+            <item1:Price>?</item1:Price>\r
+            <!--Optional:-->\r
+            <item1:RotateFlag>?</item1:RotateFlag>\r
+            <!--Optional:-->\r
+            <item1:CallNumber>?</item1:CallNumber>\r
+            <!--Optional:-->\r
+            <item1:Branch>?</item1:Branch>\r
+            <!--Optional:-->\r
+            <item1:Location>?</item1:Location>\r
+            <!--Optional:-->\r
+            <item1:ReserveBranch>?</item1:ReserveBranch>\r
+            <!--Optional:-->\r
+            <item1:ReserveLocation>?</item1:ReserveLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveType>?</item1:ReserveType>\r
+            <!--Optional:-->\r
+            <item1:ReserveCallNumber>?</item1:ReserveCallNumber>\r
+            <!--Optional:-->\r
+            <item1:ManuallySuppressed>?</item1:ManuallySuppressed>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Bucket>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Bucket>\r
+            <!--Optional:-->\r
+            <item1:Chronology>\r
+               <!--You have a CHOICE of the next 4 items at this level-->\r
+               <!--Optional:-->\r
+               <item1:Seasonal>\r
+                  <item1:Season>?</item1:Season>\r
+                  <item1:Hemisphere>?</item1:Hemisphere>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Seasonal>\r
+               <!--Optional:-->\r
+               <item1:MonthDayYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Day>?</item1:Day>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthDayYear>\r
+               <!--Optional:-->\r
+               <item1:MonthYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthYear>\r
+               <!--Optional:-->\r
+               <item1:Year>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Year>\r
+            </item1:Chronology>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Enumeration>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Enumeration>\r
+            <!--Optional:-->\r
+            <item1:AlternateStatus>?</item1:AlternateStatus>\r
+         </item:Item>\r
+      </item:CalculateFullCallNumberRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/CalculateFullCallNumberRequest"/></con:call></con:operation><con:operation id="c4d5162c-4bd2-4165-ba19-20b35584ec61" isOneWay="false" action="" name="CreateItem" bindingOperationName="CreateItem" type="One-Way" inputName="CreateItemRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="306bff34-53af-4fec-94e8-8e6de2758af4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/item" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:CreateItemRequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:Item>\r
+            <!--Optional:-->\r
+            <item1:ItemID>?</item1:ItemID>\r
+            <!--Optional:-->\r
+            <item1:BID>?</item1:BID>\r
+            <!--Optional:-->\r
+            <item1:OwningBranch>?</item1:OwningBranch>\r
+            <!--Optional:-->\r
+            <item1:OwningLocation>?</item1:OwningLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveLoanPeriod>?</item1:ReserveLoanPeriod>\r
+            <!--Optional:-->\r
+            <item1:ReserveMedia>?</item1:ReserveMedia>\r
+            <!--Optional:-->\r
+            <item1:Status>?</item1:Status>\r
+            <!--Optional:-->\r
+            <item1:Media>?</item1:Media>\r
+            <!--Optional:-->\r
+            <item1:Price>?</item1:Price>\r
+            <!--Optional:-->\r
+            <item1:RotateFlag>?</item1:RotateFlag>\r
+            <!--Optional:-->\r
+            <item1:CallNumber>?</item1:CallNumber>\r
+            <!--Optional:-->\r
+            <item1:Branch>?</item1:Branch>\r
+            <!--Optional:-->\r
+            <item1:Location>?</item1:Location>\r
+            <!--Optional:-->\r
+            <item1:ReserveBranch>?</item1:ReserveBranch>\r
+            <!--Optional:-->\r
+            <item1:ReserveLocation>?</item1:ReserveLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveType>?</item1:ReserveType>\r
+            <!--Optional:-->\r
+            <item1:ReserveCallNumber>?</item1:ReserveCallNumber>\r
+            <!--Optional:-->\r
+            <item1:ManuallySuppressed>?</item1:ManuallySuppressed>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Bucket>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Bucket>\r
+            <!--Optional:-->\r
+            <item1:Chronology>\r
+               <!--You have a CHOICE of the next 4 items at this level-->\r
+               <!--Optional:-->\r
+               <item1:Seasonal>\r
+                  <item1:Season>?</item1:Season>\r
+                  <item1:Hemisphere>?</item1:Hemisphere>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Seasonal>\r
+               <!--Optional:-->\r
+               <item1:MonthDayYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Day>?</item1:Day>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthDayYear>\r
+               <!--Optional:-->\r
+               <item1:MonthYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthYear>\r
+               <!--Optional:-->\r
+               <item1:Year>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Year>\r
+            </item1:Chronology>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Enumeration>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Enumeration>\r
+            <!--Optional:-->\r
+            <item1:AlternateStatus>?</item1:AlternateStatus>\r
+         </item:Item>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:CreateItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/CreateItemRequest"/></con:call><con:call id="09a6ea8c-fca1-46c2-9990-8e9d1c500175" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/item" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:CreateItemRequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:Item>\r
+            <!--Optional:-->\r
+            <item1:ItemID>?</item1:ItemID>\r
+            <!--Optional:-->\r
+            <item1:BID>?</item1:BID>\r
+            <!--Optional:-->\r
+            <item1:OwningBranch>?</item1:OwningBranch>\r
+            <!--Optional:-->\r
+            <item1:OwningLocation>?</item1:OwningLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveLoanPeriod>?</item1:ReserveLoanPeriod>\r
+            <!--Optional:-->\r
+            <item1:ReserveMedia>?</item1:ReserveMedia>\r
+            <!--Optional:-->\r
+            <item1:Status>?</item1:Status>\r
+            <!--Optional:-->\r
+            <item1:Media>?</item1:Media>\r
+            <!--Optional:-->\r
+            <item1:Price>?</item1:Price>\r
+            <!--Optional:-->\r
+            <item1:RotateFlag>?</item1:RotateFlag>\r
+            <!--Optional:-->\r
+            <item1:CallNumber>?</item1:CallNumber>\r
+            <!--Optional:-->\r
+            <item1:Branch>?</item1:Branch>\r
+            <!--Optional:-->\r
+            <item1:Location>?</item1:Location>\r
+            <!--Optional:-->\r
+            <item1:ReserveBranch>?</item1:ReserveBranch>\r
+            <!--Optional:-->\r
+            <item1:ReserveLocation>?</item1:ReserveLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveType>?</item1:ReserveType>\r
+            <!--Optional:-->\r
+            <item1:ReserveCallNumber>?</item1:ReserveCallNumber>\r
+            <!--Optional:-->\r
+            <item1:ManuallySuppressed>?</item1:ManuallySuppressed>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Bucket>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Bucket>\r
+            <!--Optional:-->\r
+            <item1:Chronology>\r
+               <!--You have a CHOICE of the next 4 items at this level-->\r
+               <!--Optional:-->\r
+               <item1:Seasonal>\r
+                  <item1:Season>?</item1:Season>\r
+                  <item1:Hemisphere>?</item1:Hemisphere>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Seasonal>\r
+               <!--Optional:-->\r
+               <item1:MonthDayYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Day>?</item1:Day>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthDayYear>\r
+               <!--Optional:-->\r
+               <item1:MonthYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthYear>\r
+               <!--Optional:-->\r
+               <item1:Year>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Year>\r
+            </item1:Chronology>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Enumeration>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Enumeration>\r
+            <!--Optional:-->\r
+            <item1:AlternateStatus>?</item1:AlternateStatus>\r
+         </item:Item>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:CreateItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/CreateItemRequest"/></con:call></con:operation><con:operation id="9f9a490c-f02d-4f28-abfe-079cb296af81" isOneWay="false" action="" name="CreateItemNote" bindingOperationName="CreateItemNote" type="Request-Response" outputName="CreateItemNoteResponse" inputName="CreateItemNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e3b9d107-a9f9-46b6-a7e0-1f532cbaaad1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:CreateItemNoteRequest>\r
+         <item:Note>\r
+            <!--Optional:-->\r
+            <item1:NoteID>?</item1:NoteID>\r
+            <!--Optional:-->\r
+            <item1:Item>?</item1:Item>\r
+            <!--Optional:-->\r
+            <item1:NoteType>?</item1:NoteType>\r
+            <!--Optional:-->\r
+            <item1:NoteText>?</item1:NoteText>\r
+            <!--Optional:-->\r
+            <item1:NoteDate>?</item1:NoteDate>\r
+            <!--Optional:-->\r
+            <item1:Alias>?</item1:Alias>\r
+         </item:Note>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:CreateItemNoteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/CreateItemNoteRequest"/></con:call><con:call id="fdaad746-0e79-44ef-a66f-1f4931167a40" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:CreateItemNoteRequest>\r
+         <item:Note>\r
+            <!--Optional:-->\r
+            <item1:NoteID>?</item1:NoteID>\r
+            <!--Optional:-->\r
+            <item1:Item>?</item1:Item>\r
+            <!--Optional:-->\r
+            <item1:NoteType>?</item1:NoteType>\r
+            <!--Optional:-->\r
+            <item1:NoteText>?</item1:NoteText>\r
+            <!--Optional:-->\r
+            <item1:NoteDate>?</item1:NoteDate>\r
+            <!--Optional:-->\r
+            <item1:Alias>?</item1:Alias>\r
+         </item:Note>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:CreateItemNoteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/CreateItemNoteRequest"/></con:call></con:operation><con:operation id="2a4e26b9-50f7-49b4-a947-ce4d72eaefc8" isOneWay="false" action="" name="CreateTempItem" bindingOperationName="CreateTempItem" type="Request-Response" outputName="CreateTempItemResponse" inputName="CreateTempItemRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c37bbc93-be5a-4090-a751-1567324c42b0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:tem="http://tlcdelivers.com/cx/schemas/tempitem" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:CreateTempItemRequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:TempItem>\r
+            <tem:ItemID>?</tem:ItemID>\r
+            <tem:BranchCode>?</tem:BranchCode>\r
+            <tem:LocationCode>?</tem:LocationCode>\r
+            <tem:MediaCode>?</tem:MediaCode>\r
+            <tem:BID>?</tem:BID>\r
+            <tem:CallNumber>?</tem:CallNumber>\r
+         </item:TempItem>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:CreateTempItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/CreateTempItemRequest"/></con:call><con:call id="ebdca0f4-65f8-414b-9b13-d8b1a557814f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:tem="http://tlcdelivers.com/cx/schemas/tempitem" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:CreateTempItemRequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:TempItem>\r
+            <tem:ItemID>?</tem:ItemID>\r
+            <tem:BranchCode>?</tem:BranchCode>\r
+            <tem:LocationCode>?</tem:LocationCode>\r
+            <tem:MediaCode>?</tem:MediaCode>\r
+            <tem:BID>?</tem:BID>\r
+            <tem:CallNumber>?</tem:CallNumber>\r
+         </item:TempItem>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:CreateTempItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/CreateTempItemRequest"/></con:call></con:operation><con:operation id="c0d97eef-0fe0-4538-8198-6923662ac53a" isOneWay="false" action="" name="DeleteItem" bindingOperationName="DeleteItem" type="One-Way" inputName="DeleteItemRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4db9ed76-5c9c-4f36-9b15-f37e1179ca20" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:DeleteItemRequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:ItemID>?</item:ItemID>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:DeleteItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/DeleteItemRequest"/></con:call><con:call id="cdb76bf7-9cb4-4c2d-a79f-a27aa34cbe21" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:DeleteItemRequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:ItemID>?</item:ItemID>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:DeleteItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/DeleteItemRequest"/></con:call></con:operation><con:operation id="b98a12e3-a468-4bd3-95fb-d3c18da66641" isOneWay="false" action="" name="DeleteItemNote" bindingOperationName="DeleteItemNote" type="Request-Response" outputName="DeleteItemNoteResponse" inputName="DeleteItemNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b8be6170-52c1-4167-977b-e81a5507555b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:DeleteItemNoteRequest>\r
+         <item:NoteID>?</item:NoteID>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:DeleteItemNoteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/DeleteItemNoteRequest"/></con:call><con:call id="86b4fbd7-0d34-40e9-a4e9-a339c750b7a8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:DeleteItemNoteRequest>\r
+         <item:NoteID>?</item:NoteID>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:DeleteItemNoteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/DeleteItemNoteRequest"/></con:call></con:operation><con:operation id="ab20d567-2bb8-4771-b4df-e622f0970569" isOneWay="false" action="" name="GetAvailableItemStatus" bindingOperationName="GetAvailableItemStatus" type="Request-Response" outputName="GetAvailableItemStatusResponse" inputName="GetAvailableItemStatusRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ed1a7bc8-981a-43bf-9006-f3680b1e3a68" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetAvailableItemStatusRequest>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetAvailableItemStatusRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetAvailableItemStatusRequest"/></con:call><con:call id="05198029-d9c6-4121-9958-7391fec2a079" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetAvailableItemStatusRequest>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetAvailableItemStatusRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetAvailableItemStatusRequest"/></con:call></con:operation><con:operation id="2958e307-47b7-4205-9a3a-69ef5eb0ce16" isOneWay="false" action="" name="GetFillList" bindingOperationName="GetFillList" type="Request-Response" outputName="GetFillListResponse" inputName="GetFillListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="192c1e47-2bff-4508-b577-935a8cc6bfa5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetFillListRequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:Branch>?</item:Branch>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetFillListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetFillListRequest"/></con:call><con:call id="bf7352ae-d2e4-4211-b099-064220b83f7a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetFillListRequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:Branch>?</item:Branch>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetFillListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetFillListRequest"/></con:call></con:operation><con:operation id="f9a8d6d7-78af-46e1-b720-b86c0dab15fd" isOneWay="false" action="" name="GetItemList" bindingOperationName="GetItemList" type="Request-Response" outputName="GetItemListResponse" inputName="GetItemListRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1778f10a-1378-4cca-8f1b-44e6eba5b107" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetItemListRequest>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <!--Optional:-->\r
+         <item:Branch>?</item:Branch>\r
+         <!--Optional:-->\r
+         <item:Location>?</item:Location>\r
+         <!--Optional:-->\r
+         <item:Media>?</item:Media>\r
+         <!--Optional:-->\r
+         <item:Status>?</item:Status>\r
+         <item:PagingParameters>\r
+            <!--You have a CHOICE of the next 2 items at this level-->\r
+            <req:StartPos>?</req:StartPos>\r
+            <req:FollowOnBrowseToken>?</req:FollowOnBrowseToken>\r
+            <req:NoOfRecords>?</req:NoOfRecords>\r
+         </item:PagingParameters>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>1</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>0</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetItemListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetItemListRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="2c2c3527-0664-4252-9a01-97e924b0d347" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetItemListRequest>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <!--Optional:-->\r
+         <item:Branch>?</item:Branch>\r
+         <!--Optional:-->\r
+         <item:Location>?</item:Location>\r
+         <!--Optional:-->\r
+         <item:Media>?</item:Media>\r
+         <!--Optional:-->\r
+         <item:Status>?</item:Status>\r
+         <item:PagingParameters>\r
+            <!--You have a CHOICE of the next 2 items at this level-->\r
+            <req:StartPos>?</req:StartPos>\r
+            <req:FollowOnBrowseToken>?</req:FollowOnBrowseToken>\r
+            <req:NoOfRecords>?</req:NoOfRecords>\r
+         </item:PagingParameters>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetItemListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetItemListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="30c87d37-9a00-4596-a0bb-5b1f6554760c" isOneWay="false" action="" name="GetItemNotes" bindingOperationName="GetItemNotes" type="Request-Response" outputName="GetItemNotesResponse" inputName="GetItemNotesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="73c05616-7236-4cc6-b730-b91e971306db" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetItemNotesRequest>\r
+         <item:SearchField>?</item:SearchField>\r
+         <item:SearchFieldValue>?</item:SearchFieldValue>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetItemNotesRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetItemNotesRequest"/></con:call><con:call id="e9e0434d-1329-4b1e-9390-a088771c79f5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetItemNotesRequest>\r
+         <item:SearchField>?</item:SearchField>\r
+         <item:SearchFieldValue>?</item:SearchFieldValue>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetItemNotesRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetItemNotesRequest"/></con:call></con:operation><con:operation id="8e90795c-0f46-42ce-b8c9-9096c9110966" isOneWay="false" action="" name="GetItemSuppression" bindingOperationName="GetItemSuppression" type="Request-Response" outputName="GetItemSuppressionResponse" inputName="GetItemSuppressionRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d19e9ee9-6086-4cef-aab4-a0679d8f7bb3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetItemSuppressionRequest>\r
+         <!--Zero or more repetitions:-->\r
+         <item:Items>?</item:Items>\r
+         <!--Optional:-->\r
+         <item:Bid>?</item:Bid>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetItemSuppressionRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetItemSuppressionRequest"/></con:call><con:call id="516d6e7a-f746-45a2-972a-e68c456601ca" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetItemSuppressionRequest>\r
+         <!--Zero or more repetitions:-->\r
+         <item:Items>?</item:Items>\r
+         <!--Optional:-->\r
+         <item:Bid>?</item:Bid>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetItemSuppressionRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetItemSuppressionRequest"/></con:call></con:operation><con:operation id="5c74cb45-8f55-49db-9338-438386373395" isOneWay="false" action="" name="GetWHO" bindingOperationName="GetWHO" type="Request-Response" outputName="GetWHOResponse" inputName="GetWHORequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c12a809c-fb9b-418f-a16d-6a8d0c681417" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetWHORequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:ItemID>?</item:ItemID>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetWHORequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetWHORequest"/></con:call><con:call id="328a3fc2-3409-4245-a618-ff0d666ac5e4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:GetWHORequest>\r
+         <!--You may enter the following 2 items in any order-->\r
+         <item:ItemID>?</item:ItemID>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:GetWHORequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/GetWHORequest"/></con:call></con:operation><con:operation id="e969b111-2b6d-4a1d-93a2-38a9acffbb91" isOneWay="false" action="" name="UpdateItem" bindingOperationName="UpdateItem" type="Request-Response" outputName="UpdateItemResponse" inputName="UpdateItemRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="14471101-1793-4a0e-a56e-13ecb96ea72b" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/item" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:UpdateItemRequest>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <item:ItemID>21982022543577</item:ItemID>\r
+         <item:Item>\r
+            <!--Optional:-->\r
+            <item1:ItemID>21982022543577</item1:ItemID>\r
+            <!--Optional:-->\r
+            <item1:BID>34088</item1:BID>item1:BID>\r
+            <!--Optional:-->\r
+            <item1:OwningBranch></item1:OwningBranch>\r
+            <!--Optional:-->\r
+            <item1:OwningLocation></item1:OwningLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveLoanPeriod></item1:ReserveLoanPeriod>\r
+            <!--Optional:-->\r
+            <item1:ReserveMedia></item1:ReserveMedia>\r
+            <!--Optional:-->\r
+            <item1:Status></item1:Status>\r
+            <!--Optional:-->\r
+            <item1:Media></item1:Media>\r
+            <!--Optional:-->\r
+            <item1:Price></item1:Price>\r
+            <!--Optional:-->\r
+            <item1:RotateFlag></item1:RotateFlag>\r
+            <!--Optional:-->\r
+            <item1:CallNumber>ER ADL</item1:CallNumber>\r
+            <!--Optional:-->\r
+            <item1:Branch></item1:Branch>\r
+            <!--Optional:-->\r
+            <item1:Location></item1:Location>\r
+            <!--Optional:-->\r
+            <item1:ReserveBranch></item1:ReserveBranch>\r
+            <!--Optional:-->\r
+            <item1:ReserveLocation></item1:ReserveLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveType></item1:ReserveType>\r
+            <!--Optional:-->\r
+            <item1:ReserveCallNumber></item1:ReserveCallNumber>\r
+            <!--Optional:-->\r
+            <item1:ManuallySuppressed></item1:ManuallySuppressed>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Bucket>\r
+               <item1:Position></item1:Position>\r
+               <item1:Label></item1:Label>\r
+               <item1:Data></item1:Data>\r
+            </item1:Bucket>\r
+            <!--Optional:-->\r
+            <item1:Chronology>\r
+               <!--You have a CHOICE of the next 4 items at this level-->\r
+               <!--Optional:-->\r
+               <item1:Seasonal>\r
+                  <item1:Season></item1:Season>\r
+                  <item1:Hemisphere></item1:Hemisphere>\r
+                  <item1:Year></item1:Year>\r
+               </item1:Seasonal>\r
+               <!--Optional:-->\r
+               <item1:MonthDayYear>\r
+                  <item1:Month></item1:Month>\r
+                  <item1:Day></item1:Day>\r
+                  <item1:Year></item1:Year>\r
+               </item1:MonthDayYear>\r
+               <!--Optional:-->\r
+               <item1:MonthYear>\r
+                  <item1:Month></item1:Month>\r
+                  <item1:Year></item1:Year>\r
+               </item1:MonthYear>\r
+               <!--Optional:-->\r
+               <item1:Year>\r
+                  <item1:Year></item1:Year>\r
+               </item1:Year>\r
+            </item1:Chronology>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Enumeration>\r
+               <item1:Position></item1:Position>\r
+               <item1:Label></item1:Label>\r
+               <item1:Data></item1:Data>\r
+            </item1:Enumeration>\r
+            <!--Optional:-->\r
+            <item1:AlternateStatus></item1:AlternateStatus>\r
+         </item:Item>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode></req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID></req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID></req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch></req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>1</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>0</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin></req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:UpdateItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/UpdateItemRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="eaf325be-139e-4008-9b43-c3ccdc759eb4" name="Request 3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/item" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:UpdateItemRequest>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <item:ItemID>21982022543577</item:ItemID>\r
+         <item:Item>\r
+            <!--Optional:-->\r
+            <item1:ItemID>21982022543577</item1:ItemID>\r
+            <!--Optional:-->\r
+            <item1:BID>34088</item1:BID>\r
+            <!--Optional:-->\r
+            <item1:OwningBranch></item1:OwningBranch>\r
+            <!--Optional:-->\r
+            <item1:OwningLocation></item1:OwningLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveLoanPeriod></item1:ReserveLoanPeriod>\r
+            <!--Optional:-->\r
+            <item1:ReserveMedia></item1:ReserveMedia>\r
+            <!--Optional:-->\r
+            <item1:Status>?</item1:Status>\r
+            <!--Optional:-->\r
+            <item1:Media>?</item1:Media>\r
+            <!--Optional:-->\r
+            <item1:Price>?</item1:Price>\r
+            <!--Optional:-->\r
+            <item1:RotateFlag>?</item1:RotateFlag>\r
+            <!--Optional:-->\r
+            <item1:CallNumber>ER ADLE</item1:CallNumber>\r
+            <!--Optional:-->\r
+            <item1:Branch>?</item1:Branch>\r
+            <!--Optional:-->\r
+            <item1:Location>?</item1:Location>\r
+            <!--Optional:-->\r
+            <item1:ReserveBranch>?</item1:ReserveBranch>\r
+            <!--Optional:-->\r
+            <item1:ReserveLocation>?</item1:ReserveLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveType>?</item1:ReserveType>\r
+            <!--Optional:-->\r
+            <item1:ReserveCallNumber>?</item1:ReserveCallNumber>\r
+            <!--Optional:-->\r
+            <item1:ManuallySuppressed>?</item1:ManuallySuppressed>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Bucket>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Bucket>\r
+            <!--Optional:-->\r
+            <item1:Chronology>\r
+               <!--You have a CHOICE of the next 4 items at this level-->\r
+               <!--Optional:-->\r
+               <item1:Seasonal>\r
+                  <item1:Season>?</item1:Season>\r
+                  <item1:Hemisphere>?</item1:Hemisphere>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Seasonal>\r
+               <!--Optional:-->\r
+               <item1:MonthDayYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Day>?</item1:Day>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthDayYear>\r
+               <!--Optional:-->\r
+               <item1:MonthYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthYear>\r
+               <!--Optional:-->\r
+               <item1:Year>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Year>\r
+            </item1:Chronology>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Enumeration>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Enumeration>\r
+            <!--Optional:-->\r
+            <item1:AlternateStatus>?</item1:AlternateStatus>\r
+         </item:Item>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>1</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>0</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:UpdateItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/UpdateItemRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="b37a9f6d-c295-47c0-b65b-77cf3654381a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/item" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:UpdateItemRequest>\r
+         <!--You may enter the following 3 items in any order-->\r
+         <item:ItemID>?</item:ItemID>\r
+         <item:Item>\r
+            <!--Optional:-->\r
+            <item1:ItemID>?</item1:ItemID>\r
+            <!--Optional:-->\r
+            <item1:BID>?</item1:BID>\r
+            <!--Optional:-->\r
+            <item1:OwningBranch>?</item1:OwningBranch>\r
+            <!--Optional:-->\r
+            <item1:OwningLocation>?</item1:OwningLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveLoanPeriod>?</item1:ReserveLoanPeriod>\r
+            <!--Optional:-->\r
+            <item1:ReserveMedia>?</item1:ReserveMedia>\r
+            <!--Optional:-->\r
+            <item1:Status>?</item1:Status>\r
+            <!--Optional:-->\r
+            <item1:Media>?</item1:Media>\r
+            <!--Optional:-->\r
+            <item1:Price>?</item1:Price>\r
+            <!--Optional:-->\r
+            <item1:RotateFlag>?</item1:RotateFlag>\r
+            <!--Optional:-->\r
+            <item1:CallNumber>?</item1:CallNumber>\r
+            <!--Optional:-->\r
+            <item1:Branch>?</item1:Branch>\r
+            <!--Optional:-->\r
+            <item1:Location>?</item1:Location>\r
+            <!--Optional:-->\r
+            <item1:ReserveBranch>?</item1:ReserveBranch>\r
+            <!--Optional:-->\r
+            <item1:ReserveLocation>?</item1:ReserveLocation>\r
+            <!--Optional:-->\r
+            <item1:ReserveType>?</item1:ReserveType>\r
+            <!--Optional:-->\r
+            <item1:ReserveCallNumber>?</item1:ReserveCallNumber>\r
+            <!--Optional:-->\r
+            <item1:ManuallySuppressed>?</item1:ManuallySuppressed>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Bucket>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Bucket>\r
+            <!--Optional:-->\r
+            <item1:Chronology>\r
+               <!--You have a CHOICE of the next 4 items at this level-->\r
+               <!--Optional:-->\r
+               <item1:Seasonal>\r
+                  <item1:Season>?</item1:Season>\r
+                  <item1:Hemisphere>?</item1:Hemisphere>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Seasonal>\r
+               <!--Optional:-->\r
+               <item1:MonthDayYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Day>?</item1:Day>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthDayYear>\r
+               <!--Optional:-->\r
+               <item1:MonthYear>\r
+                  <item1:Month>?</item1:Month>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:MonthYear>\r
+               <!--Optional:-->\r
+               <item1:Year>\r
+                  <item1:Year>?</item1:Year>\r
+               </item1:Year>\r
+            </item1:Chronology>\r
+            <!--0 to 4 repetitions:-->\r
+            <item1:Enumeration>\r
+               <item1:Position>?</item1:Position>\r
+               <item1:Label>?</item1:Label>\r
+               <item1:Data>?</item1:Data>\r
+            </item1:Enumeration>\r
+            <!--Optional:-->\r
+            <item1:AlternateStatus>?</item1:AlternateStatus>\r
+         </item:Item>\r
+         <!--Optional:-->\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:UpdateItemRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/UpdateItemRequest"/></con:call></con:operation><con:operation id="d87939eb-83c3-4e51-a7b8-1d6d98da1968" isOneWay="false" action="" name="UpdateItemNote" bindingOperationName="UpdateItemNote" type="Request-Response" outputName="UpdateItemNoteResponse" inputName="UpdateItemNoteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a0bf93bd-adaf-48b4-a3b4-dd8f37866f76" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:UpdateItemNoteRequest>\r
+         <item:Note>\r
+            <!--Optional:-->\r
+            <item1:NoteID>?</item1:NoteID>\r
+            <!--Optional:-->\r
+            <item1:Item>?</item1:Item>\r
+            <!--Optional:-->\r
+            <item1:NoteType>?</item1:NoteType>\r
+            <!--Optional:-->\r
+            <item1:NoteText>?</item1:NoteText>\r
+            <!--Optional:-->\r
+            <item1:NoteDate>?</item1:NoteDate>\r
+            <!--Optional:-->\r
+            <item1:Alias>?</item1:Alias>\r
+         </item:Note>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:UpdateItemNoteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/UpdateItemNoteRequest"/></con:call><con:call id="f49ecf51-bc4c-4b26-a6e0-676aeea6fcbb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://fcplapp.fcpl.org:8081/CarlXAPI/CarlXAPI/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:item="http://tlcdelivers.com/cx/schemas/itemAPI" xmlns:item1="http://tlcdelivers.com/cx/schemas/itemstatus" xmlns:req="http://tlcdelivers.com/cx/schemas/request">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <item:UpdateItemNoteRequest>\r
+         <item:Note>\r
+            <!--Optional:-->\r
+            <item1:NoteID>?</item1:NoteID>\r
+            <!--Optional:-->\r
+            <item1:Item>?</item1:Item>\r
+            <!--Optional:-->\r
+            <item1:NoteType>?</item1:NoteType>\r
+            <!--Optional:-->\r
+            <item1:NoteText>?</item1:NoteText>\r
+            <!--Optional:-->\r
+            <item1:NoteDate>?</item1:NoteDate>\r
+            <!--Optional:-->\r
+            <item1:Alias>?</item1:Alias>\r
+         </item:Note>\r
+         <item:Modifiers>\r
+            <!--Optional:-->\r
+            <req:InstitutionCode>?</req:InstitutionCode>\r
+            <!--Optional:-->\r
+            <req:StationID>?</req:StationID>\r
+            <!--Optional:-->\r
+            <req:StaffID>?</req:StaffID>\r
+            <!--Optional:-->\r
+            <req:EnvBranch>?</req:EnvBranch>\r
+            <!--Optional:-->\r
+            <req:DebugMode>?</req:DebugMode>\r
+            <!--Optional:-->\r
+            <req:ReportMode>?</req:ReportMode>\r
+            <!--Optional:-->\r
+            <req:Projection>Brief</req:Projection>\r
+            <!--Optional:-->\r
+            <req:RequestOrigin>?</req:RequestOrigin>\r
+         </item:Modifiers>\r
+      </item:UpdateItemNoteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tlcdelivers.com/cx/schemas/itemAPI/CarlXAPI/UpdateItemNoteRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
